@@ -3,7 +3,8 @@
 Based on WebView 2  , want change to my own engine in future help needed
 Features Webview 2 latest pre-release
 
-Tabs Are Based On The EasyEda Libary (https://github.com/lstratman/EasyTabs)
+Tabs Are Based On The EasyEda Libary (https://github.com/jarno9981/FireTabs)
+
 This one is highly costimized
 
 Supported
