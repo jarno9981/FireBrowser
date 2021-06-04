@@ -1,0 +1,951 @@
+// Copyright (C) Microsoft Corporation. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// These are the WebView2 experimental APIs published publicly as a part of the
+// WebView2 prerelease package. Modifications to any published interface require
+// a breaking change for the experimental APIs. Otherwise, do not modify
+// published interfaces.
+
+// midl is run from a tools directory with no special include paths setup.
+// To import an IDL from the build you must get out of the tools path
+// first.
+// We include the shipping webview2.idl so that our preview APIs may
+// interact with our public APIs.
+import "../../edge_embedded_browser/client/win/current/webview2.idl";
+
+[uuid(07abc5eb-fae4-4485-bf29-083ac335408b), version(1.0)]
+library WebView2Experimental {
+
+// Forward declarations
+interface ICoreWebView2Experimental;
+interface ICoreWebView2Experimental2;
+interface ICoreWebView2ExperimentalBytesReceivedChangedEventHandler;
+interface ICoreWebView2ExperimentalCompositionControllerInterop;
+interface ICoreWebView2ExperimentalCompositionController3;
+interface ICoreWebView2ExperimentalCompositionController4;
+interface ICoreWebView2ExperimentalController;
+interface ICoreWebView2ExperimentalDownloadOperation;
+interface ICoreWebView2ExperimentalDownloadStartingEventArgs;
+interface ICoreWebView2ExperimentalDownloadStartingEventHandler;
+interface ICoreWebView2ExperimentalEnvironment2;
+interface ICoreWebView2ExperimentalEnvironment3;
+interface ICoreWebView2ExperimentalEnvironmentInterop;
+interface ICoreWebView2ExperimentalEstimatedEndTimeChangedEventHandler;
+interface ICoreWebView2ExperimentalFrame;
+interface ICoreWebView2ExperimentalFrameCreatedEventArgs;
+interface ICoreWebView2ExperimentalFrameCreatedEventHandler;
+interface ICoreWebView2ExperimentalFrameDestroyedEventHandler;
+interface ICoreWebView2ExperimentalFrameNameChangedEventHandler;
+interface ICoreWebView2ExperimentalRasterizationScaleChangedEventHandler;
+interface ICoreWebView2ExperimentalSettings;
+interface ICoreWebView2ExperimentalSettings2;
+interface ICoreWebView2ExperimentalSettings3;
+interface ICoreWebView2ExperimentalSettings4;
+interface ICoreWebView2ExperimentalStateChangedEventHandler;
+interface ICoreWebView2ExperimentalUpdateRuntimeCompletedHandler;
+interface ICoreWebView2ExperimentalUpdateRuntimeResult;
+
+// Enums and structs
+
+/// Matrix that represents a 3D transform. This transform is used to
+/// calculate correct coordinates when calling
+/// CreateCoreWebView2PointerInfoFromPointerId. This is equivalent to a
+/// D2D1_MATRIX_4X4_F
+typedef struct COREWEBVIEW2_MATRIX_4X4 {
+  /// The value in the first row and first column of the matrix.
+  FLOAT _11;
+  /// The value in the first row and second column of the matrix.
+  FLOAT _12;
+  /// The value in the first row and third column of the matrix.
+  FLOAT _13;
+  /// The value in the first row and fourth column of the matrix.
+  FLOAT _14;
+  /// The value in the second row and first column of the matrix.
+  FLOAT _21;
+  /// The value in the second row and second column of the matrix.
+  FLOAT _22;
+  /// The value in the second row and third column of the matrix.
+  FLOAT _23;
+  /// The value in the second row and fourth column of the matrix.
+  FLOAT _24;
+  /// The value in the third row and first column of the matrix.
+  FLOAT _31;
+  /// The value in the third row and second column of the matrix.
+  FLOAT _32;
+  /// The value in the third row and third column of the matrix.
+  FLOAT _33;
+  /// The value in the third row and fourth column of the matrix.
+  FLOAT _34;
+  /// The value in the fourth row and first column of the matrix.
+  FLOAT _41;
+  /// The value in the fourth row and second column of the matrix.
+  FLOAT _42;
+  /// The value in the fourth row and third column of the matrix.
+  FLOAT _43;
+  /// The value in the fourth row and fourth column of the matrix.
+  FLOAT _44;
+} COREWEBVIEW2_MATRIX_4X4;
+
+/// Status of UpdateRuntime operation result.
+[v1_enum] typedef enum COREWEBVIEW2_UPDATE_RUNTIME_STATUS {
+
+  /// Latest version of Edge WebView2 Runtime is installed.
+  /// No update for Edge WebView2 Runtime is available, or Edge WebView2
+  /// Runtime is updated successfully and latest version is now installed.
+  COREWEBVIEW2_UPDATE_RUNTIME_STATUS_LATEST_VERSION_INSTALLED,
+
+  /// Edge WebView2 Runtime update is already running, which could be
+  /// triggered by auto update or by other UpdateRuntime request from some app.
+  COREWEBVIEW2_UPDATE_RUNTIME_STATUS_UPDATE_ALREADY_RUNNING,
+
+  /// Edge WebView2 Runtime update is blocked by group policy.
+  COREWEBVIEW2_UPDATE_RUNTIME_STATUS_BLOCKED_BY_POLICY,
+
+  /// Edge WebView2 Runtime update failed.
+  /// See `ExtendedError` property of UpdateRuntimeResult for more
+  /// information about the failure.
+  COREWEBVIEW2_UPDATE_RUNTIME_STATUS_FAILED,
+} COREWEBVIEW2_UPDATE_RUNTIME_STATUS;
+
+/// State of the download operation.
+typedef enum COREWEBVIEW2_DOWNLOAD_STATE {
+  /// The download is in progress.
+  COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS,
+  /// The connection with the file host was broken. The `InterruptReason` property
+  /// can be accessed from `ICoreWebView2DownloadOperation`. See
+  /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON` for descriptions of kinds of
+  /// interrupt reasons. Host can check whether an interrupted download can be
+  /// resumed with the `CanResume` property on the `ICoreWebView2DownloadOperation`.
+  /// Once resumed, a download is in the `COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS` state.
+  COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED,
+  /// The download completed successfully.
+  COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED,
+} COREWEBVIEW2_DOWNLOAD_STATE;
+
+/// Reason why a download was interrupted.
+typedef enum COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON {
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NONE,
+
+  /// Generic file error.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_FAILED,
+  /// Access denied due to security restrictions.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_ACCESS_DENIED,
+  /// Disk full. User should free some space or choose a different location to
+  /// store the file.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_NO_SPACE,
+  /// Result file path with file name is too long.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_NAME_TOO_LONG,
+  /// File is too large for file system.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_LARGE,
+  /// Microsoft Defender Smartscreen detected a virus in the file.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_MALICIOUS,
+  /// File was in use, too many files opened, or out of memory.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TRANSIENT_ERROR,
+  /// File blocked by local policy.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_BLOCKED_BY_POLICY,
+  /// Security check failed unexpectedly. Microsoft Defender SmartScreen could
+  //  not scan this file.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_SECURITY_CHECK_FAILED,
+  /// Seeking past the end of a file in opening a file, as part of resuming an
+  /// interrupted download. The file did not exist or was not as large as
+  /// expected. Partially downloaded file was truncated or deleted, and download
+  /// will be restarted automatically.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT,
+  /// Partial file did not match the expected hash and was deleted. Download
+  /// will be restarted automatically.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH,
+
+  /// Generic network error. User can retry the download manually.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_FAILED,
+  /// Network operation timed out.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_TIMEOUT,
+  /// Network connection lost. User can retry the download manually.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_DISCONNECTED,
+  /// Server has gone down. User can retry the download manually.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_SERVER_DOWN,
+  /// Network request invalid because original or redirected URI is invalid, has
+  /// an unsupported scheme, or is disallowed by network policy.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_INVALID_REQUEST,
+
+  /// Generic server error. User can retry the download manually.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_FAILED,
+  /// Server does not support range requests.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE,
+  /// Server does not have the requested data.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_BAD_CONTENT,
+  /// Server did not authorize access to resource.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_UNAUTHORIZED,
+  /// Server certificate problem.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CERTIFICATE_PROBLEM,
+  /// Server access forbidden.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_FORBIDDEN,
+  /// Unexpected server response. Responding server may not be intended server.
+  /// User can retry the download manually.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_UNEXPECTED_RESPONSE,
+  /// Server sent fewer bytes than the Content-Length header. Content-length
+  /// header may be invalid or connection may have closed. Download is treated
+  /// as complete unless there are
+  /// [strong validators](https://tools.ietf.org/html/rfc7232#section-2) present
+  /// to interrupt the download.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CONTENT_LENGTH_MISMATCH,
+  /// Unexpected cross-origin redirect.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CROSS_ORIGIN_REDIRECT,
+
+  /// User canceled the download.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_CANCELED,
+  /// User shut down the WebView. Resuming downloads that were interrupted
+  /// during shutdown is not yet supported.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_SHUTDOWN,
+  /// User paused the download.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED,
+
+  /// WebView crashed.
+  COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_DOWNLOAD_PROCESS_CRASHED,
+} COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON;
+
+// End of enums and structs
+
+/// This is the ICoreWebView2 Experimental interface to support FrameCreated event.
+[uuid(a3d0c16a-9ba9-11eb-a8b3-0242ac130003), object, pointer_default(unique)]
+interface ICoreWebView2Experimental : IUnknown {
+  /// Raised when a new iframe is created. Use the
+  /// CoreWebView2Frame.add_Destroyed to listen for when this iframe goes
+  /// away.
+  HRESULT add_FrameCreated([in] ICoreWebView2ExperimentalFrameCreatedEventHandler*
+                           eventHandler,
+                           [out] EventRegistrationToken * token);
+  /// Remove an event handler previously added with add_FrameCreated.
+  HRESULT remove_FrameCreated([in] EventRegistrationToken token);
+}
+
+/// This is the ICoreWebView2 Experimental interface to support the
+/// DownloadStarting event.
+[uuid(84e547a6-2cf7-4966-a44e-3dd10bE69a7f), object, pointer_default(unique)]
+interface ICoreWebView2Experimental2 : IUnknown {
+  /// Add an event handler for the `DownloadStarting` event. This event is
+  /// raised when a download has begun, blocking the default download dialog,
+  /// but not blocking the progress of the download.
+  ///
+  /// The host can choose to cancel a download, change the result file path,
+  /// and hide the default download dialog.
+  /// If the host chooses to cancel the download, the download is not saved, no
+  /// dialog is shown, and the state is changed to
+  /// COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED with interrupt reason
+  /// COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_CANCELED. Otherwise, the
+  /// download is saved to the default path after the event completes,
+  /// and default download dialog is shown if the host did not choose to hide it.
+  /// The host can change the visibility of the download dialog using the
+  /// `Handled` property. If the event is not handled, downloads complete
+  /// normally with the default dialog shown.
+  ///
+  /// \snippet ScenarioCustomDownloadExperience.cpp CustomDownloadExperience
+  HRESULT add_DownloadStarting(
+    [in] ICoreWebView2ExperimentalDownloadStartingEventHandler* eventHandler,
+    [out] EventRegistrationToken* token);
+
+  /// Remove an event handler previously added with `add_DownloadStarting`.
+  HRESULT remove_DownloadStarting(
+      [in] EventRegistrationToken token);
+}
+
+/// The ICoreWebView2Controller Experimental interface to manage rasterization scale.
+[uuid(3413543f-7a0e-4b56-98c1-7af3a37416ca), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalController : IUnknown {
+  /// The rasterization scale for the WebView. The rasterization scale is the
+  /// combination of the monitor DPI scale and text scaling set by the user.
+  /// This value should be updated when the DPI scale of the app's top level
+  /// window changes (i.e. monitor DPI scale changes or window changes monitor)
+  /// or when the text scale factor of the system changes.
+  ///
+  /// \snippet AppWindow.cpp DPIChanged
+  ///
+  /// \snippet AppWindow.cpp TextScaleChanged1
+  ///
+  /// \snippet AppWindow.cpp TextScaleChanged2
+  ///
+  /// Rasterization scale applies to the WebView content, as well as
+  /// popups, context menus, scroll bars, etc. Normal app scaling scenarios
+  /// should use the ZoomFactor property or SetBoundsAndZoomFactor API.
+  ///
+  /// \snippet ViewComponent.cpp RasterizationScale
+  [propget] HRESULT RasterizationScale([out, retval] double* scale);
+  /// Set the rasterization scale property.
+  [propput] HRESULT RasterizationScale([in] double scale);
+
+  /// ShouldDetectMonitorScaleChanges property determines whether the WebView
+  /// attempts to track monitor DPI scale changes. When true, the WebView will
+  /// track monitor DPI scale changes, update the RasterizationScale property,
+  /// and raises RasterizationScaleChanged event. When false, the WebView will
+  /// not track monitor DPI scale changes, and the app must update the
+  /// RasterizationScale property itself. RasterizationScaleChanged event will
+  /// never raise when ShouldDetectMonitorScaleChanges is false.
+  [propget] HRESULT ShouldDetectMonitorScaleChanges([out, retval] BOOL* value);
+  /// Set the ShouldDetectMonitorScaleChanges property.
+  [propput] HRESULT ShouldDetectMonitorScaleChanges([in] BOOL value);
+
+  /// Add an event handler for the RasterizationScaleChanged event.
+  /// The event is raised when the WebView detects that the monitor DPI scale
+  /// has changed, ShouldDetectMonitorScaleChanges is true, and the WebView has
+  /// changed the RasterizationScale property.
+  ///
+  /// \snippet ViewComponent.cpp RasterizationScaleChanged
+  HRESULT add_RasterizationScaleChanged(
+    [in] ICoreWebView2ExperimentalRasterizationScaleChangedEventHandler*
+        eventHandler,
+    [out] EventRegistrationToken* token);
+  /// Remove an event handler previously added with
+  /// add_RasterizationScaleChanged.
+  HRESULT remove_RasterizationScaleChanged(
+    [in] EventRegistrationToken token);
+
+  /// BoundsMode affects how setting the Bounds and RasterizationScale
+  /// properties work. Bounds mode can either be in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS
+  /// mode or COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE mode.
+  ///
+  /// When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS, setting the bounds
+  /// property will set the size of the WebView in raw screen pixels. Changing
+  /// the rasterization scale in this mode won't change the raw pixel size of
+  /// the WebView and will only change the rasterization scale.
+  ///
+  /// When the mode is in COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE, setting the
+  /// bounds property will change the logical size of the WebView which can be
+  /// described by the following equation:
+  /// ```text
+  /// Logical size * rasterization scale = Raw Pixel size
+  /// ```
+  /// In this case, changing the rasterization scale will keep the logical size
+  /// the same and change the raw pixel size.
+  ///
+  /// \snippet ViewComponent.cpp BoundsMode
+  [propget] HRESULT BoundsMode([out, retval] COREWEBVIEW2_BOUNDS_MODE* boundsMode);
+  /// Set the BoundsMode property.
+  [propput] HRESULT BoundsMode([in] COREWEBVIEW2_BOUNDS_MODE boundsMode);
+}
+
+/// This interface is an extension of the ICoreWebView2Environment. An object
+/// implementing the ICoreWebView2ExperimentalEnvironment2 interface will also
+/// implement ICoreWebView2Environment.
+[uuid(37b54fd4-1ad9-4c1f-bd14-9daba9fdeb26), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalEnvironment2 : IUnknown {
+  /// Returns the UI Automation Provider for the
+  /// ICoreWebView2CompositionController that corresponds with the given HWND.
+  HRESULT GetProviderForHwnd([in] HWND hwnd,
+                             [out, retval] IUnknown** provider);
+}
+
+/// WebView2Frame provides direct access to the iframes information.
+[uuid(f1131a5e-9ba9-11eb-a8b3-0242ac130003), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalFrame : IUnknown {
+  /// The name of the iframe from the iframe html tag declaring it.
+  /// Calling this method fails if it is called after the iframe is destroyed.
+  [propget] HRESULT Name([ out, retval ] LPWSTR * name);
+  /// Raised when the iframe changes its window.name property.
+  HRESULT add_NameChanged([in] ICoreWebView2ExperimentalFrameNameChangedEventHandler*
+                          eventHandler,
+                          [out] EventRegistrationToken * token);
+  /// Remove an event handler previously added with add_NameChanged.
+  HRESULT remove_NameChanged([in] EventRegistrationToken token);
+
+  /// Add the provided host object to script running in the iframe with the
+  /// specified name for the list of the specified origins. The host object
+  /// will be accessible for this iframe only if the iframe's origin during
+  /// access matches one of the origins which are passed. The provided origins
+  /// will be normalized before comparing to the origin of the document.
+  /// So the scheme name is made lower case, the host will be punycode decoded
+  /// as appropriate, default port values will be removed, and so on.
+  /// This means the origin's host may be punycode encoded or not and will match
+  /// regardless. If list contains malformed origin the call will fail.
+  /// The method can be called multiple times in a row without calling
+  /// RemoveHostObjectFromScript for the same object name. It will replace
+  /// the previous object with the new object and new list of origins.
+  /// List of origins will be treated as following:
+  /// 1. empty list - call will succeed and object will be added for the iframe
+  /// but it will not be exposed to any origin;
+  /// 2. list with origins - during access to host object from iframe the
+  /// origin will be checked that it belongs to this list;
+  /// 3. list with "*" element - host object will be available for iframe for
+  /// all origins. We suggest not to use this feature without understanding
+  /// security implications of giving access to host object from from iframes
+  /// with unknown origins.
+  /// Calling this method fails if it is called after the iframe is destroyed.
+  /// \snippet ScenarioAddHostObject.cpp AddHostObjectToScriptWithOrigins
+  /// For more information about host objects navigate to
+  /// [AddHostObjectToScript]
+  HRESULT AddHostObjectToScriptWithOrigins(
+      [in] LPCWSTR name, [in] VARIANT * object, [in] UINT32 originsCount,
+      [ in, size_is(originsCount) ] LPCWSTR * origins);
+  /// Remove the host object specified by the name so that it is no longer
+  /// accessible from JavaScript code in the iframe. While new access
+  /// attempts are denied, if the object is already obtained by JavaScript code
+  /// in the iframe, the JavaScript code continues to have access to that
+  /// object. Calling this method for a name that is already removed or was
+  /// never added fails. If the iframe is destroyed this method will return fail
+  /// also.
+  HRESULT RemoveHostObjectFromScript([in] LPCWSTR name);
+
+  /// The Destroyed event is raised when the iframe corresponding
+  /// to this CoreWebView2Frame object is removed or the document
+  /// containing that iframe is destroyed.
+  HRESULT add_Destroyed([in] ICoreWebView2ExperimentalFrameDestroyedEventHandler*
+                             eventHandler,
+                        [out] EventRegistrationToken* token);
+  /// Remove an event handler previously added with add_Destroyed.
+  HRESULT remove_Destroyed([in] EventRegistrationToken token);
+  /// Check whether a frame is destroyed. Returns true during
+  /// the Destroyed event.
+  HRESULT IsDestroyed([ out, retval ] BOOL* destroyed);
+}
+
+[uuid(38059770-9baa-11eb-a8b3-0242ac130003), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalFrameCreatedEventHandler : IUnknown {
+  /// Provides the result for the iframe created event.
+  HRESULT Invoke([in] ICoreWebView2* sender,
+                 [in] ICoreWebView2ExperimentalFrameCreatedEventArgs* args);
+}
+
+[uuid(435c7dc8-9baa-11eb-a8b3-0242ac130003), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalFrameNameChangedEventHandler : IUnknown {
+  /// Provides the result for the iframe name changed event.
+  /// No event args exist and the `args` parameter is set to `null`.
+  HRESULT Invoke([in] ICoreWebView2ExperimentalFrame* sender,
+                 [in] IUnknown* args);
+}
+
+// Event args for the iframe created events.
+[uuid(4d6e7b5e-9baa-11eb-a8b3-0242ac130003), object,
+  pointer_default(unique)
+] interface ICoreWebView2ExperimentalFrameCreatedEventArgs : IUnknown {
+  /// The frame which was created.
+  [propget] HRESULT Frame([ out, retval ] ICoreWebView2ExperimentalFrame** frame);
+}
+
+[uuid(59dd7b4c-9baa-11eb-a8b3-0242ac130003), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalFrameDestroyedEventHandler : IUnknown {
+  /// Provides the result for the iframe destroyed event.
+  /// No event args exist and the `args` parameter is set to `null`.
+  HRESULT Invoke([in] ICoreWebView2ExperimentalFrame* sender, [in] IUnknown* args);
+}
+
+/// Add an event handler for the `DownloadStarting` event.
+[uuid(efedc989-c396-41ca-83f7-07f845a55724), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalDownloadStartingEventHandler : IUnknown
+{
+  /// Provides the event args for the corresponding event.
+  HRESULT Invoke(
+      [in] ICoreWebView2* sender,
+      [in] ICoreWebView2ExperimentalDownloadStartingEventArgs* args);
+}
+
+/// Event args for the `DownloadStarting` event.
+[uuid(e99bbe21-43e9-4544-a732-282764eafa60), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalDownloadStartingEventArgs : IUnknown
+{
+  /// Returns the `ICoreWebView2ExperimentalDownloadOperation` for the download that
+  /// has started.
+  [propget] HRESULT DownloadOperation(
+      [out, retval] ICoreWebView2ExperimentalDownloadOperation** downloadOperation);
+
+  /// The host may set this flag to cancel the download. If canceled, the
+  /// download save dialog is not displayed regardless of the
+  /// `Handled` property.
+  [propget] HRESULT Cancel([out, retval] BOOL* cancel);
+
+  /// Sets the `Cancel` property.
+  [propput] HRESULT Cancel([in] BOOL cancel);
+
+  /// The path to the file. If setting the path, the host should ensure that it
+  /// is an absolute path, including the file name, and that the path does not
+  /// point to an existing file. If the path points to an existing file, the
+  /// file will be overwritten. If the directory does not exist, it is created.
+  [propget] HRESULT ResultFilePath([out, retval] LPWSTR* resultFilePath);
+
+  /// Sets the `ResultFilePath` property.
+  [propput] HRESULT ResultFilePath([in] LPCWSTR resultFilePath);
+
+  /// The host may set this flag to `TRUE` to hide the default download dialog
+  /// for this download. The download will progress as normal if it is not
+  /// canceled, there will just be no default UI shown. By default the value is
+  /// `FALSE` and the default download dialog is shown.
+  [propget] HRESULT Handled([out, retval] BOOL* handled);
+
+  /// Sets the `Handled` property.
+  [propput] HRESULT Handled([in] BOOL handled);
+
+  /// Returns an `ICoreWebView2Deferral` object.  Use this operation to
+  /// complete the event at a later time.
+  HRESULT GetDeferral([out, retval] ICoreWebView2Deferral** deferral);
+}
+
+/// Implements the interface to receive `BytesReceivedChanged` event.  Use the
+/// `ICoreWebView2DownloadOperation.BytesReceived` property to get the received
+/// bytes count.
+[uuid(828e8ab6-d94c-4264-9cef-5217170d6251), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalBytesReceivedChangedEventHandler : IUnknown
+{
+  /// Provides the event args for the corresponding event. No event args exist
+  /// and the `args` parameter is set to `null`.
+  HRESULT Invoke(
+      [in] ICoreWebView2ExperimentalDownloadOperation* sender, [in] IUnknown* args);
+}
+
+/// Implements the interface to receive `EstimatedEndTimeChanged` event. Use the
+/// `ICoreWebView2DownloadOperation.EstimatedEndTime` property to get the new
+/// estimated end time.
+[uuid(28f0d425-93fe-4e63-9f8d-2aeec6d3ba1e), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalEstimatedEndTimeChangedEventHandler : IUnknown
+{
+  /// Provides the event args for the corresponding event. No event args exist
+  /// and the `args` parameter is set to `null`.
+  HRESULT Invoke(
+      [in] ICoreWebView2ExperimentalDownloadOperation* sender, [in] IUnknown* args);
+}
+
+/// Implements the interface to receive `StateChanged` event. Use the
+/// `ICoreWebView2DownloadOperation.State` property to get the current state,
+/// which can be in progress, interrupted, or completed. Use the
+/// `ICoreWebView2DownloadOperation.InterruptReason` property to get the
+/// interrupt reason if the download is interrupted.
+[uuid(81336594-7ede-4ba9-bf71-acf0a95b58dd), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalStateChangedEventHandler : IUnknown
+{
+  /// Provides the event args for the corresponding event. No event args exist
+  /// and the `args` parameter is set to `null`.
+  HRESULT Invoke(
+      [in] ICoreWebView2ExperimentalDownloadOperation* sender, [in] IUnknown* args);
+}
+
+/// Represents a download operation. Gives access to the download's metadata
+/// and supports a user canceling, pausing, or resuming the download.
+[uuid(3d6b6cf2-afe1-44c7-a995-c65117714336), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalDownloadOperation : IUnknown
+{
+  /// Add an event handler for the `BytesReceivedChanged` event.
+  HRESULT add_BytesReceivedChanged(
+    [in] ICoreWebView2ExperimentalBytesReceivedChangedEventHandler* eventHandler,
+    [out] EventRegistrationToken* token);
+
+  /// Remove an event handler previously added with `add_BytesReceivedChanged`.
+  HRESULT remove_BytesReceivedChanged(
+      [in] EventRegistrationToken token);
+
+  /// Add an event handler for the `EstimatedEndTimeChanged` event.
+  HRESULT add_EstimatedEndTimeChanged(
+    [in] ICoreWebView2ExperimentalEstimatedEndTimeChangedEventHandler* eventHandler,
+    [out] EventRegistrationToken* token);
+
+  /// Remove an event handler previously added with `add_EstimatedEndTimeChanged`.
+  HRESULT remove_EstimatedEndTimeChanged(
+      [in] EventRegistrationToken token);
+
+  /// Add an event handler for the `StateChanged` event.
+  HRESULT add_StateChanged(
+    [in] ICoreWebView2ExperimentalStateChangedEventHandler* eventHandler,
+    [out] EventRegistrationToken* token);
+
+  /// Remove an event handler previously added with `add_StateChanged`.
+  HRESULT remove_StateChanged(
+      [in] EventRegistrationToken token);
+
+  /// The URI of the download.
+  [propget] HRESULT Uri([out, retval] LPWSTR* uri);
+
+  /// The Content-Disposition header value from the download's HTTP response.
+  [propget] HRESULT ContentDisposition([out, retval] LPWSTR* contentDisposition);
+
+  /// MIME type of the downloaded content.
+  [propget] HRESULT MimeType([out, retval] LPWSTR* mimeType);
+
+  /// The expected size of the download in total number of bytes based on the
+  /// HTTP Content-Length header. Returns -1 if the size is unknown.
+  [propget] HRESULT TotalBytesToReceive([out, retval] INT64* totalBytesToReceive);
+
+  /// The number of bytes that have been written to the download file.
+  [propget] HRESULT BytesReceived([out, retval] INT64* bytesReceived);
+
+  /// The estimated end time in [ISO 8601 Date and Time Format](https://www.iso.org/iso-8601-date-and-time-format.html).
+  [propget] HRESULT EstimatedEndTime([out, retval] LPWSTR* estimatedEndTime);
+
+  /// The absolute path to the download file, including file name. Host can change
+  /// this from `ICoreWebView2DownloadStartingEventArgs`.
+  [propget] HRESULT ResultFilePath([out, retval] LPWSTR* resultFilePath);
+
+  /// The state of the download. A download can be in progress, interrupted, or
+  /// completed. See `COREWEBVIEW2_DOWNLOAD_STATE` for descriptions of states.
+  [propget] HRESULT State([out, retval] COREWEBVIEW2_DOWNLOAD_STATE* downloadState);
+
+  /// The reason why connection with file host was broken.
+  [propget] HRESULT InterruptReason(
+      [out, retval] COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON* interruptReason);
+
+  /// Cancels the download. If canceled, the default download dialog shows
+  /// that the download was canceled. Host should set the `Cancel` property from
+  /// `ICoreWebView2SDownloadStartingEventArgs` if the download should be
+  /// canceled without displaying the default download dialog.
+  HRESULT Cancel();
+
+  /// Pauses the download. If paused, the default download dialog shows that the
+  /// download is paused. No effect if download is already paused. Pausing a
+  /// download changes the state to `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED`
+  /// with `InterruptReason` set to `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED`.
+  HRESULT Pause();
+
+  /// Resumes a paused download. May also resume a download that was interrupted
+  /// for another reason, if `CanResume` returns true. Resuming a download changes
+  /// the state from `COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED` to
+  /// `COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS`.
+  HRESULT Resume();
+
+  /// Returns true if an interrupted download can be resumed. Downloads with
+  /// the following interrupt reasons may automatically resume without you
+  /// calling any methods:
+  /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE`,
+  /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH`,
+  /// `COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT`.
+  /// In these cases download progress may be restarted with `BytesReceived`
+  /// reset to 0.
+  [propget] HRESULT CanResume([out, retval] BOOL* canResume);
+}
+
+/// The UpdateRuntime operation result.
+[uuid(DD503E49-AB19-47C0-B2AD-6DDD09CC3E3A), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalUpdateRuntimeResult : IUnknown {
+
+  /// The status for the UpdateRuntime operation.
+  [propget] HRESULT Status(
+      [out, retval] COREWEBVIEW2_UPDATE_RUNTIME_STATUS* status);
+
+  /// The update error happened while trying to update Edge WebView2 Runtime.
+  /// ExtendedError will be S_OK if Status is not `COREWEBVIEW2_UPDATE_RUNTIME_STATUS_FAILED`
+  /// or `COREWEBVIEW2_UPDATE_RUNTIME_STATUS_BLOCKED_BY_POLICY`.
+  [propget] HRESULT ExtendedError([out, retval] HRESULT* error);
+}
+
+/// The caller implements this interface to receive the UpdateRuntime result.
+[uuid(F1D2D722-3721-499C-87F5-4C405260697A), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalUpdateRuntimeCompletedHandler : IUnknown {
+
+  /// Provides the result for the UpdateRuntime operation.
+  /// `errorCode` will be S_OK if the update operation can be performed
+  /// normally, regardless of whether we could update the Edge WebView2
+  /// Runtime. If an unexpected error interrupts the update operation, error
+  /// code of that unexpected error would be set as `errorCode`.
+  /// When update operation can be performed normally, but update resulted in
+  /// failure, like download failed, the error code would be presented as
+  /// `ExtendedError` property of ICoreWebView2ExperimentalUpdateRuntimeResult.
+  HRESULT Invoke([in] HRESULT errorCode,
+                 [in] ICoreWebView2ExperimentalUpdateRuntimeResult* result);
+}
+
+/// This interface is an extension of the ICoreWebView2Environment. An object
+/// implementing the ICoreWebView2ExperimentalEnvironment3 interface will also
+/// implement ICoreWebView2Environment.
+[uuid(9A2BE885-7F0B-4B26-B6DD-C969BAA00BF1), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalEnvironment3 : IUnknown {
+  /// Try to update the installed Microsoft Edge WebView2 Runtime.
+  /// This will potentially result in a new version of the Edge WebView2
+  /// Runtime being installed and `NewBrowserVersionAvailable` event being raised.
+  /// There is no guarantee on the order of that event being raised and
+  /// UpdateRuntime's completed handler being invoked. Besides the
+  /// `NewBrowserVersionAvailable` event, there will be no impact to any
+  /// currently running WebView2s when the update is installed.
+  /// Even though the Edge WebView2 Runtime update is installed for the machine
+  /// and available to all users, the update will happen silently and not show
+  /// elevation prompt.
+  /// This will not impact Edge browser installations.
+  /// The latest version can always be queried using the
+  /// `GetAvailableCoreWebView2BrowserVersionString` API.
+  /// The UpdateRuntime method is only supported for an installed Edge WebView2
+  /// Runtime. When running a fixed version Edge WebView2 Runtime or non stable
+  /// channel Edge browser, this API will return `HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)`.
+  /// There could only be one active UpdateRuntime operation in an app process,
+  /// and calling this API before the completed handler for a previous call is invoked
+  /// will fail with `HRESULT_FROM_WIN32(ERROR_BUSY)`.
+  /// Calling this API repeatedly in a short period of time, will also fail with
+  /// `HRESULT_FROM_WIN32(ERROR_BUSY)`. To protect accidental abuse of the update
+  /// service, the implementation throttles the calls of this API to 3 times within
+  /// 5 minutes in a process. The exact throttling limit can change in the future.
+  /// Edge update service can only support one update request at a time globally.
+  /// If there is already an update operation running in the Edge update service,
+  //  UpdateRuntime request will result in the completed handler being invoked with a
+  /// result that has `Status` of `COREWEBVIEW2_UPDATE_RUNTIME_STATUS_UPDATE_ALREADY_RUNNING`.
+  /// As the running update could succeed or fail, the app should retry later if
+  /// `NewBrowserVersionAvailable` event has not been raised.
+  /// The UpdateRuntime operation is associated with the CoreWebView2Environment
+  /// object and any ongoing UpdateRuntime operation will be aborted when the
+  /// associated CoreWebView2Environment along with the CoreWebView2 objects that
+  /// are created by the CoreWebView2Environment object are all released. In this
+  /// case, the completed handler will be invoked with `S_OK` as `errorCode` and a
+  /// result object with `Status` of COREWEBVIEW2_UPDATE_RUNTIME_STATUS_FAILED and
+  /// `ExtendedError` as `E_ABORT`.
+  ///
+  /// \snippet AppWindow.cpp UpdateRuntime
+  HRESULT UpdateRuntime(
+      [in] ICoreWebView2ExperimentalUpdateRuntimeCompletedHandler* handler);
+}
+
+/// This interface is an extension of the ICoreWebView2CompositionController.
+/// An object implementing ICoreWebView2ExperimentalCompositionController4
+/// interface will also implement ICoreWebView2CompositionController.
+[uuid(e6041d7f-18ac-4654-a04e-8b3f81251c33), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalCompositionController4 : IUnknown {
+  /// Returns the UI Automation Provider for the WebView.
+  [propget] HRESULT UIAProvider([out, retval] IUnknown** provider);
+
+  /// A helper function to convert a pointerId received from the system into
+  /// an ICoreWebView2ExperimentalPointerInfo.
+  /// parentWindow is the HWND that contains the WebView. This can be any HWND
+  /// in the hwnd tree that contains the WebView.
+  /// The COREWEBVIEW2_MATRIX_4X4 is the transform from that HWND to the WebView.
+  /// The returned ICoreWebView2ExperimentalPointerInfo is used in SendPointerInfo.
+  /// The pointer type must be either pen or touch or the function will fail.
+  HRESULT CreateCoreWebView2PointerInfoFromPointerId(
+    [in] UINT pointerId,
+    [in] HWND parentWindow,
+    [in] struct COREWEBVIEW2_MATRIX_4X4 transform,
+    [out, retval] ICoreWebView2PointerInfo** pointerInfo);
+}
+
+/// This interface is continuation of the
+/// ICoreWebView2CompositionController interface to manage drag and
+/// drop.
+[uuid(b134916b-a104-4d2a-9567-c2fd53714350), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalCompositionController3 : IUnknown {
+  /// This function corresponds to \[IDropTarget::DragEnter\]\[WindowsWin32ApiOleidlNfOleidlIdroptargetDragenter\].
+  ///
+  /// The hosting application must register as an IDropTarget and implement
+  /// and forward DragEnter calls to this function.
+  ///
+  /// In addition, the hosting application needs to create an IDropTargetHelper
+  /// and call the corresponding \[IDropTargetHelper::DragEnter\]\[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDragenter\] function on that
+  /// object before forwarding the call to WebView.
+  ///
+  /// point parameter must be modified to include the WebView's offset and be in
+  /// the WebView's client coordinates (Similar to how SendMouseInput works).
+  ///
+  /// \[WindowsWin32ApiOleidlNfOleidlIdroptargetDragenter\]: /windows/win32/api/oleidl/nf-oleidl-idroptarget-dragenter "IDropTarget::DragEnter (oleidl.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDragenter\]: /windows/win32/api/shobjidl_core/nf-shobjidl_core-idroptargethelper-dragenter "IDropTargetHelper::DragEnter (shobjidl_core.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \snippet DropTarget.cpp DragEnter
+  HRESULT DragEnter(
+      [in] IDataObject* dataObject,
+      [in] DWORD keyState,
+      [in] POINT point,
+      [out, retval] DWORD* effect);
+
+  /// This function corresponds to \[IDropTarget::DragLeave\]\[WindowsWin32ApiOleidlNfOleidlIdroptargetDragleave\].
+  ///
+  /// The hosting application must register as an IDropTarget and implement
+  /// and forward DragLeave calls to this function.
+  ///
+  /// In addition, the hosting application needs to create an IDropTargetHelper
+  /// and call the corresponding \[IDropTargetHelper::DragLeave\]\[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDragleave\] function on that
+  /// object before forwarding the call to WebView.
+  ///
+  /// \[WindowsWin32ApiOleidlNfOleidlIdroptargetDragleave\]: /windows/win32/api/oleidl/nf-oleidl-idroptarget-dragleave "IDropTarget::DragLeave (oleidl.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDragleave\]: /windows/win32/api/shobjidl_core/nf-shobjidl_core-idroptargethelper-dragleave "IDropTargetHelper::DragLeave (shobjidl_core.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \snippet DropTarget.cpp DragLeave
+  HRESULT DragLeave();
+
+  /// This function corresponds to \[IDropTarget::DragOver\]\[WindowsWin32ApiOleidlNfOleidlIdroptargetDragover\].
+  ///
+  /// The hosting application must register as an IDropTarget and implement
+  /// and forward DragOver calls to this function.
+  ///
+  /// In addition, the hosting application needs to create an IDropTargetHelper
+  /// and call the corresponding \[IDropTargetHelper::DragOver\]\[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDragover\] function on that
+  /// object before forwarding the call to WebView.
+  ///
+  /// point parameter must be modified to include the WebView's offset and be in
+  /// the WebView's client coordinates (Similar to how SendMouseInput works).
+  ///
+  /// \[WindowsWin32ApiOleidlNfOleidlIdroptargetDragover\]: /windows/win32/api/oleidl/nf-oleidl-idroptarget-dragover "IDropTarget::DragOver (oleidl.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDragover\]: /windows/win32/api/shobjidl_core/nf-shobjidl_core-idroptargethelper-dragover "IDropTargetHelper::DragOver (shobjidl_core.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \snippet DropTarget.cpp DragOver
+  HRESULT DragOver(
+      [in] DWORD keyState,
+      [in] POINT point,
+      [out, retval] DWORD* effect);
+
+  /// This function corresponds to \[IDropTarget::Drop\]\[WindowsWin32ApiOleidlNfOleidlIdroptargetDrop\].
+  ///
+  /// The hosting application must register as an IDropTarget and implement
+  /// and forward Drop calls to this function.
+  ///
+  /// In addition, the hosting application needs to create an IDropTargetHelper
+  /// and call the corresponding \[IDropTargetHelper::Drop\]\[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDrop\] function on that
+  /// object before forwarding the call to WebView.
+  ///
+  /// point parameter must be modified to include the WebView's offset and be in
+  /// the WebView's client coordinates (Similar to how SendMouseInput works).
+  ///
+  /// \[WindowsWin32ApiOleidlNfOleidlIdroptargetDrop\]: /windows/win32/api/oleidl/nf-oleidl-idroptarget-drop "IDropTarget::Drop (oleidl.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \[WindowsWin32ApiShobjidlCoreNfShobjidlCoreIdroptargethelperDrop\]: /windows/win32/api/shobjidl_core/nf-shobjidl_core-idroptargethelper-drop "IDropTargetHelper::Drop (shobjidl_core.h) - Win32 apps | Microsoft Docs"
+  ///
+  /// \snippet DropTarget.cpp Drop
+  HRESULT Drop(
+      [in] IDataObject* dataObject,
+      [in] DWORD keyState,
+      [in] POINT point,
+      [out, retval] DWORD* effect);
+}
+
+/// The caller implements this interface to receive RasterizationScaleChanged
+/// events. Use the ICoreWebView2ExperimentalController.RasterizationScale
+/// property to get the modified rasterization scale.
+[uuid(51560be0-0ad4-4157-90cf-e6dad638d8aa), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalRasterizationScaleChangedEventHandler : IUnknown {
+  /// Called to provide the implementer with the event args for the
+  /// corresponding event. There are no event args and the args
+  /// parameter will be null.
+  HRESULT Invoke(
+    [in] ICoreWebView2ExperimentalController* sender,
+    [in] IUnknown* args);
+}
+
+// Interop interface for the CoreWebView2Environment WinRT object to
+// allow WinRT end developers to be able to use their COM interfaces as
+// parameters to some of the properties.
+[uuid(79455D4F-D28D-4C3F-A713-13CA393BD2E4), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalEnvironmentInterop : IUnknown {
+  /// Returns the UI Automation Provider for the
+  /// ICoreWebView2CompositionController that corresponds with the given HWND.
+  HRESULT GetProviderForHwnd([in] HWND hwnd,
+                             [out, retval] IUnknown** provider);
+}
+
+// Interop interface for the CoreWebView2CompositionController WinRT object to
+// allow WinRT end developers to be able to use their COM interfaces as
+// parameters to some of the properties.
+[uuid(4B60F2C9-88BB-42F4-9C4F-3C0D0ED17072), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalCompositionControllerInterop : IUnknown {
+  /// Returns the UI Automation Provider for the WebView.
+  [propget] HRESULT UIAProvider([out, retval] IUnknown** provider);
+
+  /// The RootVisualTarget is a visual in the hosting app's visual tree. This
+  /// visual is where the WebView will connect its visual tree. The app uses
+  /// this visual to position the WebView within the app. The app still needs
+  /// to use the Bounds property to size the WebView. The RootVisualTarget
+  /// property can be an IDCompositionVisual or a
+  /// Windows::UI::Composition::ContainerVisual. WebView will connect its visual
+  /// tree to the provided visual before returning from the property setter. The
+  /// app needs to commit on its device setting the RootVisualTarget property.
+  /// The RootVisualTarget property supports being set to nullptr to disconnect
+  /// the WebView from the app's visual tree.
+  /// \snippet ViewComponent.cpp SetRootVisualTarget
+  /// \snippet ViewComponent.cpp BuildDCompTree
+  [propget] HRESULT RootVisualTarget([out, retval] IUnknown** target);
+  /// Set the RootVisualTarget property.
+  [propput] HRESULT RootVisualTarget([in] IUnknown* target);
+}
+
+/// The ICoreWebView2Settings Experimental interface to manage the User Agent.
+[uuid(684cbeef-47ba-4d4a-99f4-976113f9f10a), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalSettings : IUnknown {
+  /// `UserAgent`.  Returns the User Agent. The default value is the default User Agent
+  /// of the Edge browser.
+  /// \snippet SettingsComponent.cpp UserAgent
+  [propget] HRESULT UserAgent([ out, retval ] LPWSTR* userAgent);
+  /// Sets the `UserAgent` property. This property may be overriden if
+  /// the User-Agent header is set in a request. If the parameter is empty
+  /// the User Agent will not be updated and the current User Agent will remain.
+  [propput] HRESULT UserAgent([in] LPCWSTR userAgent);
+}
+
+/// The ICoreWebView2Settings Experimental interface for AreBrowserAcceleratorKeysEnabled
+[uuid(6cc748d4-51c5-415c-ac97-77a15ffed939), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalSettings2 : IUnknown {
+  /// When this setting is set to FALSE, it disables all accelerator keys that
+  /// access features specific to a web browser, including but not limited to:
+  ///  - Ctrl-F and F3 for Find on Page
+  ///  - Ctrl-P for Print
+  ///  - Ctrl-R and F5 for Reload
+  ///  - Ctrl-Plus and Ctrl-Minus for zooming
+  ///  - Ctrl-Shift-C and F12 for DevTools
+  ///  - Special keys for browser functions, such as Back, Forward, and Search
+  ///
+  /// It does not disable accelerator keys related to movement and text editing,
+  /// such as:
+  ///  - Home, End, Page Up, and Page Down
+  ///  - Ctrl-X, Ctrl-C, Ctrl-V
+  ///  - Ctrl-A for Select All
+  ///  - Ctrl-Z for Undo
+  ///
+  /// Those accelerator keys will always be enabled unless they are handled in
+  /// the `AcceleratorKeyPressed` event.
+  ///
+  /// This setting has no effect on the `AcceleratorKeyPressed` event.  The event
+  /// will be fired for all accelerator keys, whether they are enabled or not.
+  ///
+  /// The default value for `AreBrowserAcceleratorKeysEnabled` is TRUE.
+  ///
+  /// \snippet SettingsComponent.cpp AreBrowserAcceleratorKeysEnabled
+  [propget] HRESULT AreBrowserAcceleratorKeysEnabled(
+      [out, retval] BOOL* areBrowserAcceleratorKeysEnabled);
+
+  /// Sets the `AreBrowserAcceleratorKeysEnabled` property.
+  [propput] HRESULT AreBrowserAcceleratorKeysEnabled(
+      [in] BOOL areBrowserAcceleratorKeysEnabled);
+}
+
+// This is an extension of the ICoreWebView2Settings Experimental interface.
+[uuid(b3d0d3fa-19b4-46be-8008-b49eb1533260), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalSettings3 : IUnknown {
+  /// IsPasswordAutofillEnabled controls whether autofill for password
+  /// information is enabled. The isPasswordAutofillEnabled property behaves
+  /// independently of the isGeneralAutofillEnabled property. When isPasswordAutofillEnabled is
+  /// false, no new password data is saved and no Save/Update Password prompts are displayed.
+  /// However, if there was password data already saved before disabling this setting,
+  /// then that password information is auto-populated, suggestions are shown and clicking on
+  /// one will populate the fields.
+  /// When isPasswordAutofillEnabled is true, password information is auto-populated,
+  /// suggestions are shown and clicking on one will populate the fields, new data
+  /// is saved, and a Save/Update Password prompt is displayed.
+  /// The default value is `FALSE`.
+  [propget] HRESULT IsPasswordAutofillEnabled([out, retval] BOOL* isPasswordAutofillEnabled);
+  // Set the IsPasswordAutofillEnabled property.
+  [propput] HRESULT IsPasswordAutofillEnabled([in] BOOL isPasswordAutofillEnabled);
+
+  /// IsGeneralAutofillEnabled controls whether autofill for information
+  /// like names, street and email addresses, phone numbers, and aribtrary input
+  /// is enabled. This excludes password information. When isGeneralAutofillEnabled
+  /// is false, no suggestions appear, and no new information is saved.
+  /// When isGeneralAutofillEnabled is true, information is saved, suggestions appear
+  /// and clicking on one will populate the form fields.
+  /// The default value is `TRUE`.
+  [propget] HRESULT IsGeneralAutofillEnabled([out, retval] BOOL* isGeneralAutofillEnabled);
+  /// Set the IsGeneralAutofillEnabled property.
+  [propput] HRESULT IsGeneralAutofillEnabled([in] BOOL isGeneralAutofillEnabled);
+}
+
+// This is an extension of the ICoreWebView2Settings Experimental interface for
+// IsPinchZoomEnabled
+[uuid(19f47d09-d208-4feb-9e19-a3afd2fe13ca), object, pointer_default(unique)]
+interface ICoreWebView2ExperimentalSettings4 : IUnknown {
+  /// Pinch-zoom, referred to as “Page Scale” zoom, is performed as a post-rendering step,
+  /// it changes the page scale factor property and scales the surface the web page is
+  /// rendered onto when user perfoms a pinch zooming action. It does not change the layout
+  /// but rather changes the viewport and clips the web content, the content outside of the
+  /// viewport isn't visible onscreen and users can't reach this content using mouse.
+  ///
+  /// The `IsPinchZoomEnabled` property enables or disables the ability of
+  /// the end user to use a pinching motion on touch input enabled devices
+  /// to scale the web content in the WebView2. It defaults to `TRUE`.
+  /// When set to `FALSE`, the end user cannot pinch zoom.
+  /// This API only affects the Page Scale zoom and has no effect on the
+  /// existing browser zoom properties (`IsZoomControlEnabled` and `ZoomFactor`)
+  /// or other end user mechanisms for zooming.
+  ///
+  /// \snippet SettingsComponent.cpp DisablePinchZoom
+  [propget] HRESULT IsPinchZoomEnabled([out, retval] BOOL* enabled);
+  /// Set the `IsPinchZoomEnabled` property
+  [propput] HRESULT IsPinchZoomEnabled([in] BOOL enabled);
+}
+
+}

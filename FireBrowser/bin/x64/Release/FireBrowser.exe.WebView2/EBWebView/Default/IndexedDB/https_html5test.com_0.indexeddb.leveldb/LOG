@@ -1,0 +1,4 @@
+2021/06/02-12:41:50.417 4bcc Reusing MANIFEST C:\Users\jarno\Bureaublad\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_html5test.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/06/02-12:41:50.418 4bcc Recovering log #4
+2021/06/02-12:41:50.420 4bcc Reusing old log C:\Users\jarno\Bureaublad\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_html5test.com_0.indexeddb.leveldb/000004.log 
+2021/06/02-12:41:50.442 220 Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)

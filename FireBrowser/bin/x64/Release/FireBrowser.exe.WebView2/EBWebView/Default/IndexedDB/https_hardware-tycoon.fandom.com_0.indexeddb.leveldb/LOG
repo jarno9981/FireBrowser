@@ -1,0 +1,6 @@
+2021/05/04-12:27:14.852 3ed4 Creating DB C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_hardware-tycoon.fandom.com_0.indexeddb.leveldb since it was missing.
+2021/05/04-12:27:14.864 3ed4 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_hardware-tycoon.fandom.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/05/04-12:27:17.037 5674 Level-0 table #5: started
+2021/05/04-12:27:17.039 5674 Level-0 table #5: 1601 bytes OK
+2021/05/04-12:27:17.042 5674 Delete type=0 #3
+2021/05/04-12:27:17.042 5674 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,17 @@
+2021/06/04-12:10:14.376 439c Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/06/04-12:10:14.377 439c Recovering log #136
+2021/06/04-12:10:14.380 439c Reusing old log C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000136.log 
+2021/06/04-12:10:17.165 4fd4 Level-0 table #141: started
+2021/06/04-12:10:17.170 4fd4 Level-0 table #141: 82610 bytes OK
+2021/06/04-12:10:17.172 4fd4 Delete type=0 #136
+2021/06/04-12:10:17.172 4fd4 Manual compaction at level-0 from '\x00E\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00F\x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/06/04-12:10:17.354 2560 Level-0 table #143: started
+2021/06/04-12:10:17.356 2560 Level-0 table #143: 2372 bytes OK
+2021/06/04-12:10:17.357 2560 Delete type=0 #140
+2021/06/04-12:10:17.358 2560 Manual compaction at level-0 from '\x00G\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00H\x00\x00\x00' @ 0 : 0; will stop at '\x00G\x01\x1f\x04\x02\x03\x00\x00\x00\x00\x00\x00\xf0?\x03\x00\xa0?\x08h\x9dwB\x00\x03\x00\x00\x00\x00\x00\x00\x00@' @ 60406 : 1
+2021/06/04-12:10:17.358 2560 Compacting 1@0 + 1@1 files
+2021/06/04-12:10:17.361 2560 Generated table #144@0: 520 keys, 11412 bytes
+2021/06/04-12:10:17.361 2560 Compacted 1@0 + 1@1 files => 11412 bytes
+2021/06/04-12:10:17.362 2560 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/06/04-12:10:17.362 2560 Manual compaction at level-0 from '\x00G\x01\x1f\x04\x02\x03\x00\x00\x00\x00\x00\x00\xf0?\x03\x00\xa0?\x08h\x9dwB\x00\x03\x00\x00\x00\x00\x00\x00\x00@' @ 60406 : 1 .. '\x00H\x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/06/04-12:10:17.394 476c Manual compaction at level-0 from '\x00F\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00G\x00\x00\x00' @ 0 : 0; will stop at (end)

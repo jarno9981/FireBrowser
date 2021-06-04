@@ -1,0 +1,6 @@
+2021/05/28-21:43:31.605 1ec Creating DB C:\Users\jarno\Bureaublad\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\http_html6test.com_0.indexeddb.leveldb since it was missing.
+2021/05/28-21:43:31.613 1ec Reusing MANIFEST C:\Users\jarno\Bureaublad\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\http_html6test.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/05/28-21:43:31.647 33bc Level-0 table #5: started
+2021/05/28-21:43:31.649 33bc Level-0 table #5: 1651 bytes OK
+2021/05/28-21:43:31.652 33bc Delete type=0 #3
+2021/05/28-21:43:31.652 33bc Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
