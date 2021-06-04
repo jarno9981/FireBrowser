@@ -11,14 +11,13 @@ Supported
 - [x] Eventmonitor
 - [x] basic ad blocker 10 - 18% blocks succeed
 - [x] basic child safe web 700+ words that aren't allowed
+- [x] history
 
 Features Building (Help Needed) C#
 - [ ] ignotic
 - [ ] download handeler
 - [ ] Beter Settings
 - [ ] own dev tool
-- [ ] history
-- [ ] in buildt ad-blocker
 
 
 # FireBrowser Updated Design
