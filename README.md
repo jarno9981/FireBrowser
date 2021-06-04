@@ -8,7 +8,6 @@ This one is highly costimized
 
 Supported
 - [x] Navigating
-- [x] Eventmonitor
 - [x] basic ad blocker 10 - 18% blocks succeed
 - [x] basic child safe web 700+ words that aren't allowed
 - [x] history
