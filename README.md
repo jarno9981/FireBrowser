@@ -19,6 +19,8 @@ Features Building (Help Needed) C#
 - [ ] Beter Settings
 - [ ] own dev tool
 
+# FireBrowser 2021 Design Tabs Changed
+!https://user-images.githubusercontent.com/53493418/122013348-619b9a80-cdbe-11eb-920e-869a9cab1ba8.png
 
 # FireBrowser Updated Design
 
