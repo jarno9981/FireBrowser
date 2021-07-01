@@ -164,11 +164,11 @@
             Draws a user-defined Graphics canvas.
             </summary>
             <param name="graphics">The Graphics canvas.</param>
-            <param name="Bounds">The canvas rectangle-bounds.</param>
-            <param name="radius">The canvas corner-radius.</param>
-            <param name="fillPen">The pen used to draw objects inside the canvas.</param>
-            <param name="backColor">Color of the fill.</param>
-            <param name="checkBoxState">The state to manipulate/render.</param>
+            <param name="radius">The canvas corner radius.</param>
+            <param name="borderThickness">The canvas border thickness.</param>
+            <param name="borderColor">The canvas border color.</param>
+            <param name="backColor">The canvas background color.</param>
+            <param name="style">The canvas control style.</param>
         </member>
         <member name="M:Bunifu.UI.WinForms.BunifuUserControl.SetDefaults">
             <summary>

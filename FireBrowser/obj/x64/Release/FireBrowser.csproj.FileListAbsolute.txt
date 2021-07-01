@@ -364,7 +364,6 @@ C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x6
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\System.Security.Permissions.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\System.Security.Principal.Windows.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\System.ValueTuple.xml
-C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.csproj.AssemblyReference.cache
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.forms.FloatingPanel.resources
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.forms.Help.resources
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.forms.Settings.resources
@@ -378,3 +377,9 @@ C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x6
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.csproj.CopyComplete
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.exe
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\Microsoft.WindowsAPICodePack.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Release\FireBrowser.csproj.AssemblyReference.cache

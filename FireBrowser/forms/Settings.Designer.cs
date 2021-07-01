@@ -31,25 +31,15 @@ namespace FireBrowser.forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             this.bunifuToolTip1 = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
-            this.last = new Bunifu.UI.WinForms.BunifuToggleSwitch();
-            this.label5 = new System.Windows.Forms.Label();
             this.rdGoogle = new System.Windows.Forms.RadioButton();
-            this.rdBing = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,10 +47,17 @@ namespace FireBrowser.forms
             this.safety = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.unlock = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.childsecure = new Bunifu.UI.WinForms.BunifuToggleSwitch();
+            this.childsecure = new System.Windows.Forms.CheckBox();
+            this.AeroPeek = new System.Windows.Forms.CheckBox();
+            this.cs = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Save = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.parent = new System.Windows.Forms.Timer(this.components);
+            this.firstsync = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuToolTip1
@@ -98,73 +95,13 @@ namespace FireBrowser.forms
             this.bunifuToolTip1.ToolTipPosition = new System.Drawing.Point(0, 0);
             this.bunifuToolTip1.ToolTipTitle = null;
             // 
-            // last
-            // 
-            this.last.Animation = 5;
-            this.last.BackColor = System.Drawing.Color.Transparent;
-            this.last.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("last.BackgroundImage")));
-            this.last.Checked = false;
-            this.last.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.last.InnerCirclePadding = 3;
-            this.last.Location = new System.Drawing.Point(303, 23);
-            this.last.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.last.Name = "last";
-            this.last.Size = new System.Drawing.Size(65, 32);
-            this.last.TabIndex = 5;
-            this.last.ThumbMargin = 3;
-            toggleState1.BackColor = System.Drawing.Color.DarkGray;
-            toggleState1.BackColorInner = System.Drawing.Color.White;
-            toggleState1.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState1.BorderColorInner = System.Drawing.Color.White;
-            toggleState1.BorderRadius = 17;
-            toggleState1.BorderRadiusInner = 11;
-            toggleState1.BorderThickness = 1;
-            toggleState1.BorderThicknessInner = 1;
-            this.last.ToggleStateDisabled = toggleState1;
-            toggleState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BackColorInner = System.Drawing.Color.White;
-            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState2.BorderColorInner = System.Drawing.Color.White;
-            toggleState2.BorderRadius = 17;
-            toggleState2.BorderRadiusInner = 11;
-            toggleState2.BorderThickness = 1;
-            toggleState2.BorderThicknessInner = 1;
-            this.last.ToggleStateOff = toggleState2;
-            toggleState3.BackColor = System.Drawing.Color.DodgerBlue;
-            toggleState3.BackColorInner = System.Drawing.Color.White;
-            toggleState3.BorderColor = System.Drawing.Color.DodgerBlue;
-            toggleState3.BorderColorInner = System.Drawing.Color.White;
-            toggleState3.BorderRadius = 17;
-            toggleState3.BorderRadiusInner = 11;
-            toggleState3.BorderThickness = 1;
-            toggleState3.BorderThicknessInner = 1;
-            this.last.ToggleStateOn = toggleState3;
-            this.bunifuToolTip1.SetToolTip(this.last, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.last, global::FireBrowser.Properties.Resources.search_24px);
-            this.bunifuToolTip1.SetToolTipTitle(this.last, "Turn Last Seen On Or Off");
-            this.last.Value = false;
-            this.last.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.last_CheckedChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(390, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "On";
-            this.bunifuToolTip1.SetToolTip(this.label5, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.label5, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.label5, "");
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
             // rdGoogle
             // 
             this.rdGoogle.AutoSize = true;
             this.rdGoogle.Checked = true;
-            this.rdGoogle.Location = new System.Drawing.Point(12, 29);
+            this.rdGoogle.Location = new System.Drawing.Point(42, 40);
             this.rdGoogle.Name = "rdGoogle";
-            this.rdGoogle.Size = new System.Drawing.Size(75, 21);
+            this.rdGoogle.Size = new System.Drawing.Size(73, 20);
             this.rdGoogle.TabIndex = 10;
             this.rdGoogle.TabStop = true;
             this.rdGoogle.Text = "Google";
@@ -174,24 +111,9 @@ namespace FireBrowser.forms
             this.rdGoogle.UseVisualStyleBackColor = true;
             this.rdGoogle.CheckedChanged += new System.EventHandler(this.rdGoogle_CheckedChanged);
             // 
-            // rdBing
-            // 
-            this.rdBing.AutoSize = true;
-            this.rdBing.Location = new System.Drawing.Point(127, 29);
-            this.rdBing.Name = "rdBing";
-            this.rdBing.Size = new System.Drawing.Size(57, 21);
-            this.rdBing.TabIndex = 11;
-            this.rdBing.Text = "Bing";
-            this.bunifuToolTip1.SetToolTip(this.rdBing, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.rdBing, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.rdBing, "");
-            this.rdBing.UseVisualStyleBackColor = true;
-            this.rdBing.CheckedChanged += new System.EventHandler(this.rdBing_CheckedChanged);
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Silver;
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -205,24 +127,12 @@ namespace FireBrowser.forms
             this.bunifuToolTip1.SetToolTipIcon(this.groupBox1, null);
             this.bunifuToolTip1.SetToolTipTitle(this.groupBox1, "");
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(181, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "last = last visited On / Off";
-            this.bunifuToolTip1.SetToolTip(this.label4, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.label4, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.label4, "");
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(181, 32);
+            this.label3.Location = new System.Drawing.Point(187, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 17);
+            this.label3.Size = new System.Drawing.Size(144, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "settings = normal panel";
             this.bunifuToolTip1.SetToolTip(this.label3, "");
@@ -234,7 +144,7 @@ namespace FireBrowser.forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 17);
+            this.label2.Size = new System.Drawing.Size(147, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "set:quick = snel settings";
             this.bunifuToolTip1.SetToolTip(this.label2, "");
@@ -246,7 +156,7 @@ namespace FireBrowser.forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 17);
+            this.label1.Size = new System.Drawing.Size(127, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "homes = homepage";
             this.bunifuToolTip1.SetToolTip(this.label1, "");
@@ -519,9 +429,9 @@ namespace FireBrowser.forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(475, 546);
+            this.label6.Location = new System.Drawing.Point(427, 550);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 17);
+            this.label6.Size = new System.Drawing.Size(23, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Off";
             this.bunifuToolTip1.SetToolTip(this.label6, "");
@@ -530,49 +440,86 @@ namespace FireBrowser.forms
             // 
             // childsecure
             // 
-            this.childsecure.Animation = 5;
-            this.childsecure.BackColor = System.Drawing.Color.Transparent;
-            this.childsecure.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("childsecure.BackgroundImage")));
-            this.childsecure.Checked = false;
-            this.childsecure.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.childsecure.InnerCirclePadding = 3;
-            this.childsecure.Location = new System.Drawing.Point(403, 538);
-            this.childsecure.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.childsecure.AutoSize = true;
+            this.childsecure.Location = new System.Drawing.Point(403, 550);
             this.childsecure.Name = "childsecure";
-            this.childsecure.Size = new System.Drawing.Size(65, 32);
-            this.childsecure.TabIndex = 16;
-            this.childsecure.ThumbMargin = 3;
-            toggleState4.BackColor = System.Drawing.Color.DarkGray;
-            toggleState4.BackColorInner = System.Drawing.Color.White;
-            toggleState4.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState4.BorderColorInner = System.Drawing.Color.White;
-            toggleState4.BorderRadius = 17;
-            toggleState4.BorderRadiusInner = 11;
-            toggleState4.BorderThickness = 1;
-            toggleState4.BorderThicknessInner = 1;
-            this.childsecure.ToggleStateDisabled = toggleState4;
-            toggleState5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState5.BackColorInner = System.Drawing.Color.White;
-            toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState5.BorderColorInner = System.Drawing.Color.White;
-            toggleState5.BorderRadius = 17;
-            toggleState5.BorderRadiusInner = 11;
-            toggleState5.BorderThickness = 1;
-            toggleState5.BorderThicknessInner = 1;
-            this.childsecure.ToggleStateOff = toggleState5;
-            toggleState6.BackColor = System.Drawing.Color.DodgerBlue;
-            toggleState6.BackColorInner = System.Drawing.Color.White;
-            toggleState6.BorderColor = System.Drawing.Color.DodgerBlue;
-            toggleState6.BorderColorInner = System.Drawing.Color.White;
-            toggleState6.BorderRadius = 17;
-            toggleState6.BorderRadiusInner = 11;
-            toggleState6.BorderThickness = 1;
-            toggleState6.BorderThicknessInner = 1;
-            this.childsecure.ToggleStateOn = toggleState6;
+            this.childsecure.Size = new System.Drawing.Size(18, 17);
+            this.childsecure.TabIndex = 18;
             this.bunifuToolTip1.SetToolTip(this.childsecure, "");
             this.bunifuToolTip1.SetToolTipIcon(this.childsecure, global::FireBrowser.Properties.Resources.secure_48px);
             this.bunifuToolTip1.SetToolTipTitle(this.childsecure, "Secure Child Browsing");
-            this.childsecure.Value = false;
+            this.childsecure.UseVisualStyleBackColor = true;
+            // 
+            // AeroPeek
+            // 
+            this.AeroPeek.AutoSize = true;
+            this.AeroPeek.Checked = true;
+            this.AeroPeek.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AeroPeek.Location = new System.Drawing.Point(12, 495);
+            this.AeroPeek.Name = "AeroPeek";
+            this.AeroPeek.Size = new System.Drawing.Size(132, 20);
+            this.AeroPeek.TabIndex = 19;
+            this.AeroPeek.Text = "AeroPeek - Tabs";
+            this.bunifuToolTip1.SetToolTip(this.AeroPeek, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.AeroPeek, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.AeroPeek, "");
+            this.AeroPeek.UseVisualStyleBackColor = true;
+            this.AeroPeek.CheckedChanged += new System.EventHandler(this.AeroPeek_CheckedChanged);
+            // 
+            // cs
+            // 
+            this.cs.AutoSize = true;
+            this.cs.Location = new System.Drawing.Point(217, 40);
+            this.cs.Name = "cs";
+            this.cs.Size = new System.Drawing.Size(73, 20);
+            this.cs.TabIndex = 20;
+            this.cs.TabStop = true;
+            this.cs.Text = "Costum";
+            this.cs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuToolTip1.SetToolTip(this.cs, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.cs, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.cs, "");
+            this.cs.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(42, 86);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(271, 34);
+            this.textBox1.TabIndex = 21;
+            this.bunifuToolTip1.SetToolTip(this.textBox1, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.textBox1, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.textBox1, "");
+            // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(42, 126);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(271, 32);
+            this.Save.TabIndex = 22;
+            this.Save.Text = "Save-Engine";
+            this.bunifuToolTip1.SetToolTip(this.Save, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.Save, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.Save, "");
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdGoogle);
+            this.groupBox2.Controls.Add(this.Save);
+            this.groupBox2.Controls.Add(this.cs);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(356, 185);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search Engine";
+            this.bunifuToolTip1.SetToolTip(this.groupBox2, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.groupBox2, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.groupBox2, "");
             // 
             // timer1
             // 
@@ -582,21 +529,23 @@ namespace FireBrowser.forms
             // 
             this.parent.Tick += new System.EventHandler(this.parent_Tick);
             // 
+            // firstsync
+            // 
+            this.firstsync.Tick += new System.EventHandler(this.firstsync_Tick);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1124, 633);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.AeroPeek);
             this.Controls.Add(this.childsecure);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.safety);
             this.Controls.Add(this.pass);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.rdBing);
-            this.Controls.Add(this.rdGoogle);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.last);
             this.Controls.Add(this.unlock);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
@@ -606,6 +555,8 @@ namespace FireBrowser.forms
             this.Click += new System.EventHandler(this.Settings_Click);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,13 +564,9 @@ namespace FireBrowser.forms
 
         #endregion
         private Bunifu.UI.WinForms.BunifuToolTip bunifuToolTip1;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch last;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.RadioButton rdGoogle;
-        private System.Windows.Forms.RadioButton rdBing;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -628,6 +575,12 @@ namespace FireBrowser.forms
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton unlock;
         private System.Windows.Forms.Timer parent;
         private System.Windows.Forms.Label label6;
-        private Bunifu.UI.WinForms.BunifuToggleSwitch childsecure;
+        private System.Windows.Forms.CheckBox childsecure;
+        private System.Windows.Forms.Timer firstsync;
+        private System.Windows.Forms.CheckBox AeroPeek;
+        private System.Windows.Forms.RadioButton cs;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

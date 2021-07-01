@@ -31,10 +31,10 @@ namespace FireBrowser
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Browser));
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
             this.History = new System.Windows.Forms.PictureBox();
             this.Downloads = new System.Windows.Forms.PictureBox();
@@ -43,10 +43,6 @@ namespace FireBrowser
             this.BtnBack = new System.Windows.Forms.PictureBox();
             this.txtUrl = new Bunifu.UI.WinForms.BunifuTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.Report = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BackTo = new Bunifu.UI.WinForms.BunifuImageButton();
             this.ValidOrNot = new System.Windows.Forms.Label();
@@ -70,8 +66,6 @@ namespace FireBrowser
             ((System.ComponentModel.ISupportInitialize)(this.BtnForward)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBack)).BeginInit();
             this.panel2.SuspendLayout();
-            this.bunifuPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.web)).BeginInit();
@@ -187,7 +181,7 @@ namespace FireBrowser
             this.txtUrl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtUrl.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUrl.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUrl.DefaultText = "https://www.google.nl/";
+            this.txtUrl.DefaultText = "";
             this.txtUrl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.txtUrl.HideSelection = true;
             this.txtUrl.IconLeft = global::FireBrowser.Properties.Resources.secure_48px;
@@ -195,34 +189,33 @@ namespace FireBrowser
             this.txtUrl.IconPadding = 5;
             this.txtUrl.IconRight = global::FireBrowser.Properties.Resources.search_24px;
             this.txtUrl.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUrl.Lines = new string[] {
-        "https://www.google.nl/"};
+            this.txtUrl.Lines = new string[0];
             this.txtUrl.Location = new System.Drawing.Point(165, 12);
             this.txtUrl.MaxLength = 32767;
             this.txtUrl.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtUrl.Modified = false;
             this.txtUrl.Multiline = false;
             this.txtUrl.Name = "txtUrl";
-            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties9.FillColor = System.Drawing.Color.Empty;
-            stateProperties9.ForeColor = System.Drawing.Color.Empty;
-            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtUrl.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtUrl.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties11.FillColor = System.Drawing.Color.Empty;
-            stateProperties11.ForeColor = System.Drawing.Color.Empty;
-            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtUrl.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = System.Drawing.Color.Maroon;
-            stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            stateProperties12.ForeColor = System.Drawing.Color.Empty;
-            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtUrl.OnIdleState = stateProperties12;
+            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Empty;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtUrl.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtUrl.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtUrl.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.Maroon;
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtUrl.OnIdleState = stateProperties4;
             this.txtUrl.Padding = new System.Windows.Forms.Padding(3);
             this.txtUrl.PasswordChar = '\0';
             this.txtUrl.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -231,7 +224,7 @@ namespace FireBrowser
             this.txtUrl.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUrl.SelectedText = "";
             this.txtUrl.SelectionLength = 0;
-            this.txtUrl.SelectionStart = 22;
+            this.txtUrl.SelectionStart = 0;
             this.txtUrl.ShortcutsEnabled = true;
             this.txtUrl.Size = new System.Drawing.Size(750, 41);
             this.txtUrl.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
@@ -246,6 +239,7 @@ namespace FireBrowser
             this.bunifuToolTip1.SetToolTipTitle(this.txtUrl, "Type helps then enter\r\nTo go to help Form\r\nBefore helps command type f:\r\n");
             this.txtUrl.UseSystemPasswordChar = false;
             this.txtUrl.WordWrap = true;
+            this.txtUrl.TextChange += new System.EventHandler(this.txtUrl_TextChange);
             this.txtUrl.OnIconLeftClick += new System.EventHandler(this.txtUrl_OnIconLeftClick);
             this.txtUrl.OnIconRightClick += new System.EventHandler(this.txtUrl_OnIconRightClick);
             this.txtUrl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUrl_KeyUp);
@@ -255,7 +249,6 @@ namespace FireBrowser
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.bunifuPanel1);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.web);
@@ -267,73 +260,6 @@ namespace FireBrowser
             this.bunifuToolTip1.SetToolTip(this.panel2, "");
             this.bunifuToolTip1.SetToolTipIcon(this.panel2, null);
             this.bunifuToolTip1.SetToolTipTitle(this.panel2, "");
-            // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Maroon;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 3;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.Report);
-            this.bunifuPanel1.Controls.Add(this.pictureBox1);
-            this.bunifuPanel1.Controls.Add(this.label1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(7, 46);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1020, 498);
-            this.bunifuPanel1.TabIndex = 3;
-            this.bunifuToolTip1.SetToolTip(this.bunifuPanel1, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.bunifuPanel1, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.bunifuPanel1, "");
-            // 
-            // Report
-            // 
-            this.Report.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Report.Location = new System.Drawing.Point(15, 443);
-            this.Report.Name = "Report";
-            this.Report.Size = new System.Drawing.Size(224, 42);
-            this.Report.TabIndex = 2;
-            this.Report.Text = "Report 2x press required if 1x not worked";
-            this.bunifuToolTip1.SetToolTip(this.Report, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.Report, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.Report, "");
-            this.Report.UseVisualStyleBackColor = true;
-            this.Report.Click += new System.EventHandler(this.Report_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::FireBrowser.Properties.Resources.firewall_40px;
-            this.pictureBox1.Location = new System.Drawing.Point(913, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.bunifuToolTip1.SetToolTip(this.pictureBox1, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.pictureBox1, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.pictureBox1, "");
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Maroon;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(8, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(320, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Not Allowed To Search For This";
-            this.bunifuToolTip1.SetToolTip(this.label1, "");
-            this.bunifuToolTip1.SetToolTipIcon(this.label1, null);
-            this.bunifuToolTip1.SetToolTipTitle(this.label1, "");
             // 
             // panel4
             // 
@@ -392,7 +318,7 @@ namespace FireBrowser
             this.ValidOrNot.AutoSize = true;
             this.ValidOrNot.Location = new System.Drawing.Point(7, 6);
             this.ValidOrNot.Name = "ValidOrNot";
-            this.ValidOrNot.Size = new System.Drawing.Size(103, 17);
+            this.ValidOrNot.Size = new System.Drawing.Size(97, 16);
             this.ValidOrNot.TabIndex = 4;
             this.ValidOrNot.Text = "Valid Certifcate";
             this.bunifuToolTip1.SetToolTip(this.ValidOrNot, "");
@@ -460,7 +386,7 @@ namespace FireBrowser
             this.OnOf.AutoSize = true;
             this.OnOf.Location = new System.Drawing.Point(5, 299);
             this.OnOf.Name = "OnOf";
-            this.OnOf.Size = new System.Drawing.Size(76, 17);
+            this.OnOf.Size = new System.Drawing.Size(70, 16);
             this.OnOf.TabIndex = 5;
             this.OnOf.Text = "History-On";
             this.bunifuToolTip1.SetToolTip(this.OnOf, "");
@@ -648,6 +574,7 @@ namespace FireBrowser
             this.bunifuToolTip1.SetToolTipIcon(this.web, null);
             this.bunifuToolTip1.SetToolTipTitle(this.web, "");
             this.web.ZoomFactor = 1.1D;
+            this.web.NavigationStarting += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs>(this.web_NavigationStarting);
             this.web.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.web_NavigationCompleted);
             this.web.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.web_SourceChanged);
             this.web.VisibleChanged += new System.EventHandler(this.web_VisibleChanged);
@@ -790,9 +717,6 @@ namespace FireBrowser
             ((System.ComponentModel.ISupportInitialize)(this.BtnForward)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnBack)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -812,7 +736,7 @@ namespace FireBrowser
         private System.Windows.Forms.PictureBox BtnBack;
         private System.Windows.Forms.PictureBox BtnForward;
         private System.Windows.Forms.PictureBox BtnRefresh;
-        private Bunifu.UI.WinForms.BunifuSeparator bunifuSeparator1;
+
         private System.Windows.Forms.ImageList IconList;
         private Bunifu.UI.WinForms.BunifuSnackbar bunifuSnackbar1;
         private System.Windows.Forms.PictureBox Downloads;
@@ -829,9 +753,5 @@ namespace FireBrowser
         private System.Windows.Forms.Label ValidOrNot;
         private Bunifu.UI.WinForms.BunifuImageButton BackTo;
         private System.Windows.Forms.Timer UnsafeOrSafeChecker;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button Report;
     }
 }

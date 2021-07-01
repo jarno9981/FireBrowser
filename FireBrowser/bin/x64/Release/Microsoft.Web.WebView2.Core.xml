@@ -4,6 +4,66 @@
         <name>Microsoft.Web.WebView2.Core</name>
     </assembly>
     <members>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate">
+            <summary>
+            Represents a client certificate. Gives access to a certificate's metadata.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.ToX509Certificate2">
+            <summary>
+            Converts this to a X509Certificate2.
+            </summary>
+            <returns>
+            An object created using PEM encoded data from 
+            this <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate"/> object.
+            </returns>
+            <seealso cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.ValidFrom">
+            <summary>
+            The valid date and time for the certificate since the UNIX epoc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.ValidTo">
+            <summary>
+            The valid date and time for the certificate since the UNIX epoc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.Subject">
+            <summary>
+            Subject of the certificate.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.Issuer">
+            <summary>
+            Name of the certificate authority that issued the certificate.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.DerEncodedSerialNumber">
+            <summary>
+            DER encoded serial number of the certificate. Read more about DER at [RFC 7468 DER](https://tools.ietf.org/html/rfc7468#appendix-B).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.DisplayName">
+            <summary>
+            Display name for a certificate.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.PemEncodedIssuerCertificateChain">
+            <summary>
+            Returns list of PEM encoded client certificate issuer chain. In this list first element is the current certificate followed by intermediate1, intermediate2...intermediateN-1. Root certificate is the last element in the list.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.Kind">
+            <summary>
+            Kind of a certificate. See <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateKind"/> for descriptions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate.ToPemEncoding">
+            <summary>
+            PEM encoded data for the certificate. Returns Base64 encoding of DER encoded certificate. Read more about PEM at [RFC 1421 Privacy Enhanced Mail](https://tools.ietf.org/html/rfc1421).
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.Raw.ICoreWebView2Staging">
             
         </member>
@@ -212,7 +272,7 @@
             Gets or sets the WebView default background color.
             </summary>
             <remarks>
-            The DefaultBackgroundColor is the color that renders underneath all web content. This means WebView renders this color when there is no web content loaded such as before the initial navigation or between navigations. This also means web pages with undefined css background properties or background properties containing transparent pixels will render their contents over this color. Web pages with defined and opaque background properties that span the page will obscure the `DefaultBackgroundColor` and display normally. The default value for this property is white to resemble the native browser experience. Currently this API only supports opaque colors and transparency. It will fail for colors with alpha values that don't equal 0 or 255 ie. translucent colors are not supported. Choosing a transparent color will result in showing hosting app content. This means webpages without explicit background properties defined will render web content over hosting app content.
+            The DefaultBackgroundColor is the color that renders underneath all web content. This means WebView renders this color when there is no web content loaded such as before the initial navigation or between navigations. This also means web pages with undefined css background properties or background properties containing transparent pixels will render their contents over this color. Web pages with defined and opaque background properties that span the page will obscure the `DefaultBackgroundColor` and display normally. The default value for this property is white to resemble the native browser experience. Currently this API only supports opaque colors and transparency. It will fail for colors with alpha values that don't equal 0 or 255 ie. translucent colors are not supported. It also does not support transparency on Windows 7. On Windows 7, setting `DefaultBackgroundColor` to a Color with an Alpha value other than 255 will result in failure. On any OS above Win7, choosing a transparent color will result in showing hosting app content. This means webpages without explicit background properties defined will render web content over hosting app content.
             </remarks>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.RasterizationScale">
@@ -242,7 +302,7 @@
         </member>
         <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2Controller.RasterizationScaleChanged">
             <summary>
-            RasterizationScalechanged is raised when the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.RasterizationScale"/> property changes.
+            RasterizationScaleChanged is raised when the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.RasterizationScale"/> property changes.
             </summary>
             <remarks>
             The event is raised when the Webview detects that the monitor DPI scale has changed, <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.ShouldDetectMonitorScaleChanges"/> is true, and the Webview has changed the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.RasterizationScale"/> property.
@@ -531,6 +591,7 @@
             <remarks>
             WebViews created from an environment run on the Browser process specified with environment parameters and objects created from an environment should be used in the same environment. Using it in different environments are not guaranteed to be compatible and may fail.
             </remarks>
+            
             
             
             
@@ -863,6 +924,9 @@
             The returned <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2PointerInfo"/> needs to be populated with all of the relevant info before calling <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController.SendPointerInput(Microsoft.Web.WebView2.Core.CoreWebView2PointerEventKind,Microsoft.Web.WebView2.Core.CoreWebView2PointerInfo)"/>.
             </remarks>
         </member>
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2Environment.BrowserProcessExited">
+            
+        </member>
         <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.UpdateRuntimeAsync">
             <summary>
             Try to update the installed Microsoft Edge WebView2 Runtime.
@@ -877,7 +941,7 @@
             
             The latest version can always be queried using the <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.GetAvailableBrowserVersionString(System.String)"/> API.
             
-            The <see cref="!:CoreWebView2Environment.UpdateRuntime"/> method is only supported for an installed Edge WebView2 Runtime.
+            The <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Environment.UpdateRuntimeAsync"/> method is only supported for an installed Edge WebView2 Runtime.
             When running a fixed version Edge WebView2 Runtime or non stable channel Edge browser, this API will return <c>HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED)</c>.
             
             There could only be one active UpdateRuntime operation in an app process, calling this API before previous call is completed will fail with <c>HRESULT_FROM_WIN32(ERROR_BUSY)</c>.
@@ -890,7 +954,7 @@
             
             The <c>UpdateRuntime</c> operation is associated with the CoreWebView2Environment object and any ongoing <c>UpdateRuntime</c> operation will be aborted when the
             associated CoreWebView2Environment along with the CoreWebView2 objects that are created by the CoreWebView2Environment object are all released.
-            In this case, the result will be a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult"/>  with <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeStatus.Failed"/> <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult.Status"/> and <c>E_ABORT</c> <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult.ExtendedError"/>.
+            In this case, the result will be a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult"/> with <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeStatus.Failed"/> <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult.Status"/> and <c>E_ABORT</c> <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult.ExtendedError"/>.
             </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2EnvironmentOptions">
@@ -988,12 +1052,6 @@
             The list of the iframe origins for which host object will be accessible.
             </param>
             <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.AddHostObjectToScript(System.String,System.Object)"/>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2Frame.Initialize">
-            <summary>
-            Add .Net specific host object helper for the CoreWebView2Frame so that it can
-            figure out whether a member is a method of an object.
-            </summary>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Frame.Name">
             <summary>
@@ -1819,11 +1877,8 @@
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2PermissionKind.Notifications">
             <summary>
-            Indicates permission to send web notifications.
+            Indicates permission to send web notifications. This permission request is currently auto-rejected and no event is raised for it.
             </summary>
-            <remarks>
-            This permission request is currently auto-rejected and no event is raised for it.
-            </remarks>
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2PermissionKind.OtherSensors">
             <summary>
@@ -2066,14 +2121,11 @@
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2DownloadState.Interrupted">
             <summary>
-            The connection with the file host was broken.
+            The connection with the file host was broken. The reason why a download was interrupted can accessed from <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadOperation.InterruptReason"/>. See
             </summary>
-            <remarks>
-            The reason why a download was interrupted can accessed from <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadOperation.InterruptReason"/>. See
             <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadInterruptReason"/> for descriptions of the
             different kinds of interrupt reasons. Host can check whether an interrupted
             download can be resumed with <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadOperation.CanResume"/>. Once resumed, the download state is in progress.
-            </remarks>
         </member>
         <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2DownloadState.Completed">
             <summary>
@@ -2271,6 +2323,26 @@
             </summary>
             
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateKind">
+            <summary>
+            The kind of the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateKind.SmartCard">
+            <summary>
+            Specifies smart card certificate.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateKind.Pin">
+            <summary>
+            Specifies PIN certificate.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateKind.Other">
+            <summary>
+            Specifies other certificate.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2CapturePreviewImageFormat">
             <summary>
             Specifies the image format for the <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.CapturePreviewAsync(Microsoft.Web.WebView2.Core.CoreWebView2CapturePreviewImageFormat,System.IO.Stream)"/> method.
@@ -2285,6 +2357,27 @@
             <summary>
             Indicates that the JPEG image format is used.
             </summary>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitKind">
+            <summary>
+            Specifies the browser process exit kind used in
+            </summary>
+            <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitedEventArgs"/>.
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitKind.Normal">
+            <summary>
+            Indicates that the browser process ended normally.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitKind.Failed">
+            <summary>
+            Indicates that the browser process ended unexpectedly.
+            </summary>
+            <remarks>
+            A <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ProcessFailed"/> event will also be raised to
+            listening WebViews from the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Environment"/> associated to
+            the failed process.
+            </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2BoundsMode">
             <summary>
@@ -2727,6 +2820,12 @@
             <remarks>
             Setting changes made after <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> event do not apply until the next top-level navigation.
             </remarks>
+            <summary>
+            Defines properties that enable, disable, or modify WebView features.
+            </summary>
+            <remarks>
+            Setting changes made after <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.NavigationStarting"/> event do not apply until the next top-level navigation.
+            </remarks>
         </member>
         <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsScriptEnabled">
             <summary>
@@ -2843,9 +2942,9 @@
             The default value of <c>AreBrowserAcceleratorKeysEnabled</c> is true.
             </remarks>
         </member>
-        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsPasswordAutofillEnabled">
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsPasswordAutosaveEnabled">
             <summary>
-            Determines whether password information will be saved and autofilled.
+            Determines whether password information will be autosaved.
             </summary>
             <remarks>
             When disabled, no new password data is saved and no Save/Update Password prompts are displayed. However, if there was password data already saved before disabling this setting, then that password information is auto-populated, suggestions are shown and clicking on one will populate the fields.
@@ -2857,7 +2956,7 @@
             Determines whether general form information will be saved and autofilled.
             </summary>
             <remarks>
-            General autofill information includes information like names, street and email addresses, phone numbers, and aribtrary input. This excludes password information. When disabled, no suggestions appear, and no new information is saved.
+            General autofill information includes information like names, street and email addresses, phone numbers, and arbitrary input. This excludes password information. When disabled, no suggestions appear, and no new information is saved.
             When enabled, information is saved, suggestions appear, and clicking on one will populate the form fields. The default value is <c>true</c>.
             </remarks>
             <seealso cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Controller.AcceleratorKeyPressed"/>
@@ -2867,9 +2966,12 @@
             The `IsPinchZoomEnabled` property enables or disables the ability of the end users to use pinching motions on touch input enabled devices to scale the web content in the WebView2.
             </summary>
             <remarks>
-            When disabled, the end users cannnot use pinching motions on touch input enabled devices to scale the web content in the WebView2. The default value is <c>true</c>.
-            Pinch-zoom, referred to as “Page Scale” zoom, is performed as a post-rendering step, it changes the page scale factor property and scales the surface the web page is rendered onto when user perfoms a pinch zooming action. It does not change the layout but rather changes the viewport and clips the web content, the content outside of the viewport isn't visible onscreen and users can't reach this content using mouse. This API only affects the Page Scale zoom and has no effect on the existing browser zoom properties (`IsZoomControlEnabled` and `ZoomFactor`) or other end user mechanisms for zooming.
+            When disabled, the end users cannot use pinching motions on touch input enabled devices to scale the web content in the WebView2. The default value is <c>true</c>.
+            Pinch-zoom, referred to as “Page Scale” zoom, is performed as a post-rendering step, it changes the page scale factor property and scales the surface the web page is rendered onto when user performs a pinch zooming action. It does not change the layout but rather changes the viewport and clips the web content, the content outside of the viewport isn't visible onscreen and users can't reach this content using mouse. This API only affects the Page Scale zoom and has no effect on the existing browser zoom properties (`IsZoomControlEnabled` and `ZoomFactor`) or other end user mechanisms for zooming.
             </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2Settings.IsSwipeNavigationEnabled">
+            
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ScriptDialogOpeningEventArgs">
             <summary>
@@ -3387,6 +3489,17 @@
             The URI of the document in the frame.
             </summary>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FrameCreatedEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameCreated"/> event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FrameCreatedEventArgs.Frame">
+            <summary>
+            Gets the created frame.
+            </summary>
+            <seealso cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Frame"/>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeResult">
             <summary>
             The UpdateRuntime result.
@@ -3403,65 +3516,6 @@
             </summary>
             <remarks>
             ExtendedError will be 0 if Status is not <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeStatus.Failed"/> or <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2UpdateRuntimeStatus.BlockedByPolicy"/>.
-            </remarks>
-        </member>
-        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2FrameCreatedEventArgs">
-            <summary>
-            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameCreated"/> event.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2FrameCreatedEventArgs.Frame">
-            <summary>
-            Gets the created frame.
-            </summary>
-            <seealso cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Frame"/>
-        </member>
-        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs">
-            <summary>
-            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.DownloadStarting"/> event.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.DownloadOperation">
-            <summary>
-            Returns the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadOperation"/> for the download that has started.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.Cancel">
-            <summary>
-            Indicates whether to cancel the download.
-            </summary>
-            <remarks>
-            If canceled, the download save dialog is not displayed regardless of the
-            <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.Handled"/> value and the state is changed to <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2DownloadState.Interrupted"/> with interrupt reason <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2DownloadInterruptReason.UserCanceled"/>. 
-            </remarks>
-        </member>
-        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.ResultFilePath">
-            <summary>
-            The path to the file.
-            </summary>
-            <remarks>
-            If setting the path, the host should ensure that it is an absolute path,
-            including the file name, and that the path does not point to an existing file.
-            If the path points to an existing file, the file will be overwritten. If the directory does not exist, it is created.
-            </remarks>
-        </member>
-        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.Handled">
-            <summary>
-            Indicates whether to hide the default download dialog.
-            </summary>
-            <remarks>
-            If set to true, the default download dialog is hidden for this download. The
-            download progresses normally if it is not canceled, there will just be no
-            default UI shown. By default the value is false and the default download dialog
-            is shown.
-            </remarks>
-        </member>
-        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.GetDeferral">
-            <summary>
-            Gets a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Deferral"/> object.
-            </summary>
-            <remarks>
-            Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
             </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2CompositionController">
@@ -3565,6 +3619,87 @@
             A uint that is set as the effect for <c>IDropTarget::DragOver</c>
             </returns>
         </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.ClientCertificateRequested"/> event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Host">
+            <summary>
+            Returns host name of the server that requested client certificate authentication.
+            </summary>
+            <remarks>
+            Normalization rules applied to the hostname are:
+            * Convert to lowercase characters for ascii characters.
+            * Punycode is used for representing non ascii characters.
+            * Strip square brackets for IPV6 address.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Port">
+            <summary>
+            Returns port of the server that requested client certificate authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.IsProxy">
+            <summary>
+            Returns true if the server that issued this request is an http proxy. Returns false if the server is the origin server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.AllowedCertificateAuthorities">
+            <summary>
+            The list contains distinguished names of certificate authorities allowed by the server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.MutuallyTrustedCertificates">
+            <summary>
+            Returns the list of <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificate"/> when client certificate authentication is requested. The list contains mutually trusted CA certificate.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.SelectedCertificate">
+            <summary>
+            Selected certificate to respond to the server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Cancel">
+            <summary>
+            Indicates whether to cancel the certificate selection.
+            </summary>
+            <remarks>
+            If canceled, the request is aborted regardless of the <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Handled"/> property. By default the value is false.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Handled">
+            <summary>
+            Indicates whether the event has been handled by host.
+            </summary>
+            <remarks>
+            Set to true to respond to the server with or without a certificate. If this flag is true with a <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.SelectedCertificate"/> it responds to the server with the selected certificate otherwise respond to the server without a certificate. By default the value of <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Handled"/> and <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Cancel"/> are false and display default client certificate selection dialog prompt to allow the user to choose a certificate. The <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.SelectedCertificate"/> is ignored unless <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.Handled"/> is set to true.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2ClientCertificateRequestedEventArgs.GetDeferral">
+            <summary>
+            Gets a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Deferral"/> object.
+            </summary>
+            <remarks>
+            Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitedEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2Environment.BrowserProcessExited"/>
+            </summary>
+            event.
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitedEventArgs.BrowserProcessExitKind">
+            <summary>
+            The kind of browser process exit that has occurred.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2BrowserProcessExitedEventArgs.BrowserProcessId">
+            <summary>
+            The process ID of the browser process that has exited.
+            </summary>
+        </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2">
             <summary>
             WebView2 enables you to host web content using the latest Microsoft Edge browser and web technology.
@@ -3637,7 +3772,7 @@
             NavigationStarting is raised when the WebView main frame is requesting permission to navigate to a different URI.
             </summary>
             <remarks>
-            Redirects raises this event as well. You may block corresponding navigations until the event handler returns.
+            Redirects raise this event as well, and the navigation id is the same as the original one. You may block corresponding navigations until the event handler returns.
             </remarks>
         </member>
         <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.ContentLoading">
@@ -3684,7 +3819,7 @@
             FrameNavigationStarting is raised when a child frame in the WebView requests permission to navigate to a different URI.
             </summary>
             <remarks>
-            Redirects raise this operation as well. You may block corresponding navigations until the event handler returns.
+            Redirects raise this operation as well, and the navigation id is the same as the original one. You may block corresponding navigations until the event handler returns.
             </remarks>
         </member>
         <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameNavigationCompleted">
@@ -4150,7 +4285,7 @@
             
             See [Sleeping Tabs FAQ](https://techcommunity.microsoft.com/t5/articles/sleeping-tabs-faq/m-p/1705434) for conditions that might prevent WebView from being suspended. In those situations, the result of the async task is false.
             
-            The WebView will be automatically resumed when it becomes visible. Therefore, the app normally does not have to call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Resume"/> explicilty.
+            The WebView will be automatically resumed when it becomes visible. Therefore, the app normally does not have to call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Resume"/> explicitly.
             
             The app can call <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.Resume"/> and then <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.TrySuspendAsync"/> periodically for an invisible WebView so that the invisible WebView can sync up with latest data and the page ready to show fresh content when it becomes visible.
             
@@ -4237,6 +4372,9 @@
             <param name="hostName">The host name to be removed from the mapping.</param>
             <seealso cref="M:Microsoft.Web.WebView2.Core.CoreWebView2.SetVirtualHostNameToFolderMapping(System.String,System.String,Microsoft.Web.WebView2.Core.CoreWebView2HostResourceAccessKind)"/>
         </member>
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameCreated">
+            
+        </member>
         <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.DownloadStarting">
             <summary>
             DownloadStarting is raised when a download has begun, blocking the default
@@ -4244,8 +4382,70 @@
              download dialog, but not blocking the progress of the download.
              <remarks>The host can choose to cancel a download, change the result file path, and hide the default download dialog. If download is not handled or canceled, the download is saved to the default path after the event completes with default download dialog shown.</remarks>
         </member>
-        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.FrameCreated">
+        <member name="E:Microsoft.Web.WebView2.Core.CoreWebView2.ClientCertificateRequested">
+            <summary>
+            ClientCertificateRequested is raised when WebView2 is making a request to an HTTP server that needs a client certificate for HTTP authentication. Read more about HTTP client certificates at [RFC 8446 The Transport Layer Security (TLS) Protocol Version 1.3](https://tools.ietf.org/html/rfc8446).
+            </summary>
+            <remarks>
+            The host have several options for responding to client certificate requests:
             
+            Scenario                                                   | Handled | Cancel | SelectedCertificate
+            ---------------------------------------------------------- | ------- | ------ | -------------------
+            Respond to server with a certificate                       | True    | False  | MutuallyTrustedCertificate value
+            Respond to server without certificate                      | True    | False  | null
+            Display default client certificate selection dialog prompt | False   | False  | n/a
+            Cancel the request                                         | n/a     | True   | n/a
+            
+            If the host don't handle the event, WebView2 will show the default client certificate selection dialog prompt to the user.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs">
+            <summary>
+            Event args for the <see cref="E:Microsoft.Web.WebView2.Core.CoreWebView2.DownloadStarting"/> event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.DownloadOperation">
+            <summary>
+            Returns the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2DownloadOperation"/> for the download that has started.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.Cancel">
+            <summary>
+            Indicates whether to cancel the download.
+            </summary>
+            <remarks>
+            If canceled, the download save dialog is not displayed regardless of the
+            <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.Handled"/> value and the state is changed to <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2DownloadState.Interrupted"/> with interrupt reason <see cref="F:Microsoft.Web.WebView2.Core.CoreWebView2DownloadInterruptReason.UserCanceled"/>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.ResultFilePath">
+            <summary>
+            The path to the file.
+            </summary>
+            <remarks>
+            If setting the path, the host should ensure that it is an absolute path,
+            including the file name, and that the path does not point to an existing file.
+            If the path points to an existing file, the file will be overwritten. If the directory does not exist, it is created.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.Handled">
+            <summary>
+            Indicates whether to hide the default download dialog.
+            </summary>
+            <remarks>
+            If set to true, the default download dialog is hidden for this download. The
+            download progresses normally if it is not canceled, there will just be no
+            default UI shown. By default the value is false and the default download dialog
+            is shown.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Web.WebView2.Core.CoreWebView2DownloadStartingEventArgs.GetDeferral">
+            <summary>
+            Gets a <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Deferral"/> object.
+            </summary>
+            <remarks>
+            Use this to <see cref="M:Microsoft.Web.WebView2.Core.CoreWebView2Deferral.Complete"/> the event at a later time.
+            </remarks>
         </member>
         <member name="T:Microsoft.Web.WebView2.Core.CoreWebView2DOMContentLoadedEventArgs">
             <summary>

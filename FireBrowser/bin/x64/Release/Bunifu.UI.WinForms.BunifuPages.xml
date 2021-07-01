@@ -59,15 +59,6 @@
             using its page name.
             </summary>
         </member>
-        <member name="M:Bunifu.UI.WinForms.BunifuPages.OnSelecting(System.Windows.Forms.TabControlCancelEventArgs)">
-            <summary>
-            Raises the <see cref="M:Bunifu.UI.WinForms.BunifuPages.OnSelecting(System.Windows.Forms.TabControlCancelEventArgs)"/> event. 
-            </summary>
-            <param name="e">
-            Provides data for the 'Selecting' and 'Deselecting'
-            events of a <see cref="T:Bunifu.UI.WinForms.BunifuPages"/> control.
-            </param>
-        </member>
         <member name="M:Bunifu.UI.WinForms.BunifuPages.SetPage(System.String,System.Boolean)">
             <summary>
             Sets the tab page that will be visible to the user.
@@ -90,6 +81,15 @@
             Sets the tab page that will be visible to the user.
             </summary>
             <param name="page">The tab page to be set.</param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuPages.OnSelecting(System.Windows.Forms.TabControlCancelEventArgs)">
+            <summary>
+            Raises the <see cref="M:Bunifu.UI.WinForms.BunifuPages.OnSelecting(System.Windows.Forms.TabControlCancelEventArgs)"/> event. 
+            </summary>
+            <param name="e">
+            Provides data for the 'Selecting' and 'Deselecting'
+            events of a <see cref="T:Bunifu.UI.WinForms.BunifuPages"/> control.
+            </param>
         </member>
         <member name="F:Utilities.BunifuPages.BunifuAnimatorNS.DoubleBitmapControl.components">
             <summary> 

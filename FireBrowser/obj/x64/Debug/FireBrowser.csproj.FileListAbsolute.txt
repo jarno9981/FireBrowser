@@ -420,7 +420,6 @@ C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x6
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.Web.WebView2.Core.dll
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.Web.WebView2.WinForms.dll
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.Web.WebView2.Wpf.dll
-C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Newtonsoft.Json.dll
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\OpenHtmlToPdf.dll
@@ -476,7 +475,6 @@ C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x6
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.Web.WebView2.Core.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.Web.WebView2.WinForms.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.Web.WebView2.Wpf.xml
-C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Newtonsoft.Json.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Svg.xml
@@ -490,7 +488,6 @@ C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x6
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\System.Security.Permissions.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\System.Security.Principal.Windows.xml
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\System.ValueTuple.xml
-C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.csproj.AssemblyReference.cache
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.forms.FloatingPanel.resources
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.forms.Help.resources
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.forms.Settings.resources
@@ -499,8 +496,16 @@ C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x6
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.Browser.resources
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.Properties.Resources.resources
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.csproj.GenerateResource.cache
-C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.exe.licenses
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.csproj.CoreCompileInputs.cache
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.csproj.CopyComplete
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.exe
 C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.pdb
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.csproj.AssemblyReference.cache
+C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\obj\x64\Debug\FireBrowser.exe.licenses

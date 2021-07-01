@@ -31,11 +31,10 @@ namespace FireBrowser.forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +42,6 @@ namespace FireBrowser.forms
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Silver;
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -56,14 +54,15 @@ namespace FireBrowser.forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "QuickNav - Type In UrlBox Only Before = Type f: before command";
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(287, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "last = last visited On / Off";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(31, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(173, 17);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "history = to turn on history";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
             // 
@@ -94,16 +93,6 @@ namespace FireBrowser.forms
             this.label1.Text = "homes = homepage";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "history = to turn on history";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
             // Help
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -126,7 +115,6 @@ namespace FireBrowser.forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

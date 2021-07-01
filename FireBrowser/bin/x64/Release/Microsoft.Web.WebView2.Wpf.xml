@@ -334,14 +334,17 @@
             but I still wanted to keep the delay-or-not logic abstracted away from the Source setter.
             </remarks>
         </member>
-        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.SetValueFromCore(System.Windows.DependencyProperty,System.Object)">
+        <member name="M:Microsoft.Web.WebView2.Wpf.WebView2.SetCurrentValueFromCore(System.Windows.DependencyProperty,System.Object)">
             <summary>
             Updates one of our dependency properties to match a new value from the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2"/>.
             It both sets the value and remembers (in _propertyChangingFromCore) that it came from the CoreWebView2 rather than the caller,
             allowing the property's "on changed" handler to alter its behavior based on where the new value came from.
             It's only intended to be called in a CoreWebView2 event handler that's informing us of a new property value.
-            It's basically just a wrapper around the inherited SetValue which also maintains _propertyChangingFromCore.
+            It's basically just a wrapper around the inherited SetCurrentValue which also maintains _propertyChangingFromCore.
             See the comments on <see cref="F:Microsoft.Web.WebView2.Wpf.WebView2._propertyChangingFromCore"/> for additional background info.
+            One more thing worth explicitly stating is that it wraps SetCurrentValue rather than SetValue,
+            in order to avoid overwriting any OneWay bindings that are set on the specified properties.
+            Check the link https://stackoverflow.com/q/4230698 for more information about the difference between SetValue and SetCurrentValue.
             </summary>
             <param name="property">The property to change due to an equivalent change in the CoreWebView2.</param>
             <param name="value">The new value from the CoreWebView2.</param>
@@ -653,7 +656,7 @@
             <summary>
             The default background color for the WebView.
             This property directly exposes <see cref="P:Microsoft.Web.WebView2.Core.CoreWebView2Controller.DefaultBackgroundColor"/>, see its documentation for more info.
-            Getting this property before the <see cref="P:Microsoft.Web.WebView2.Wpf.WebView2.CoreWebView2Controller"/> has been initialized will retrieve the last value which was
+            Getting this property before the <see cref="T:Microsoft.Web.WebView2.Core.CoreWebView2Controller"/> has been initialized will retrieve the last value which was
             set to it, or <c>Color.White</c> (the default) if none has been.
             The most recent value set to this property before CoreWebView2Controller has been initialized will be set on it after initialization.
             </summary>

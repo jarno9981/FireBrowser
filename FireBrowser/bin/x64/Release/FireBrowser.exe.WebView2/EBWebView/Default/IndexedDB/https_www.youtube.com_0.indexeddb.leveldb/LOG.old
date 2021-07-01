@@ -1,34 +1,16 @@
-2021/06/04-12:11:03.176 4650 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/06/04-12:11:03.177 4650 Recovering log #143
-2021/06/04-12:11:03.178 4650 Reusing old log C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000143.log 
-2021/06/04-12:11:03.179 4650 Delete type=2 #141
-2021/06/04-12:11:04.886 4228 Level-0 table #148: started
-2021/06/04-12:11:04.890 4228 Level-0 table #148: 25394 bytes OK
-2021/06/04-12:11:04.891 4228 Delete type=0 #143
-2021/06/04-12:11:04.892 4228 Manual compaction at level-0 from '\x00V\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00W\x00\x00\x00' @ 0 : 0; will stop at '\x00W\x02\x02\x01\x14\x00s\x00h\x00e\x00l\x00l\x00_\x00i\x00d\x00e\x00n\x00t\x00i\x00f\x00i\x00e\x00r\x00_\x00k\x00e\x00y' @ 74798 : 1
-2021/06/04-12:11:04.892 4228 Compacting 1@0 + 1@1 files
-2021/06/04-12:11:04.896 4228 Generated table #149@0: 790 keys, 13462 bytes
-2021/06/04-12:11:04.896 4228 Compacted 1@0 + 1@1 files => 13462 bytes
-2021/06/04-12:11:04.896 4228 compacted to: files[ 0 1 1 0 0 0 0 ]
-2021/06/04-12:11:04.897 4228 Delete type=2 #148
-2021/06/04-12:11:04.897 4228 Manual compaction at level-0 from '\x00W\x02\x02\x01\x14\x00s\x00h\x00e\x00l\x00l\x00_\x00i\x00d\x00e\x00n\x00t\x00i\x00f\x00i\x00e\x00r\x00_\x00k\x00e\x00y' @ 74798 : 1 .. '\x00W\x00\x00\x00' @ 0 : 0; will stop at (end)
-2021/06/04-12:11:05.396 4228 Manual compaction at level-0 from '\x00X\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00Y\x00\x00\x00' @ 0 : 0; will stop at (end)
-2021/06/04-12:11:05.502 8a8 Level-0 table #151: started
-2021/06/04-12:11:05.505 8a8 Level-0 table #151: 21086 bytes OK
-2021/06/04-12:11:05.506 8a8 Delete type=2 #145
-2021/06/04-12:11:05.506 8a8 Delete type=0 #147
-2021/06/04-12:11:05.507 8a8 Manual compaction at level-0 from '\x00W\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00X\x00\x00\x00' @ 0 : 0; will stop at '\x00Y\x01\x1f\x04\x02\x03\x00\x00\x00\x00\x00\x00\xf0?\x03\x00\x80\x07\x14h\x9dwB\x00\x03\x00\x00\x00\x00\x00\x00\x00@' @ 75211 : 1
-2021/06/04-12:11:05.507 8a8 Compacting 1@0 + 1@1 files
-2021/06/04-12:11:05.510 8a8 Generated table #152@0: 846 keys, 13517 bytes
-2021/06/04-12:11:05.510 8a8 Compacted 1@0 + 1@1 files => 13517 bytes
-2021/06/04-12:11:05.511 8a8 compacted to: files[ 0 1 1 0 0 0 0 ]
-2021/06/04-12:11:05.511 8a8 Delete type=2 #151
-2021/06/04-12:11:05.512 8a8 Manual compaction at level-0 from '\x00Y\x01\x1f\x04\x02\x03\x00\x00\x00\x00\x00\x00\xf0?\x03\x00\x80\x07\x14h\x9dwB\x00\x03\x00\x00\x00\x00\x00\x00\x00@' @ 75211 : 1 .. '\x00X\x00\x00\x00' @ 0 : 0; will stop at (end)
-2021/06/04-12:11:05.570 4b64 Manual compaction at level-0 from '\x00Y\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00Z\x00\x00\x00' @ 0 : 0; will stop at (end)
-2021/06/04-12:11:30.993 4884 Compacting 1@1 + 1@2 files
-2021/06/04-12:11:30.997 4884 Generated table #153@1: 183 keys, 9356 bytes
-2021/06/04-12:11:30.997 4884 Compacted 1@1 + 1@2 files => 9356 bytes
-2021/06/04-12:11:30.997 4884 compacted to: files[ 0 0 1 0 0 0 0 ]
-2021/06/04-12:11:30.998 4884 Delete type=2 #149
-2021/06/04-12:11:31.296 338c Manual compaction at level-0 from '\x00Z\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00[\x00\x00\x00' @ 0 : 0; will stop at (end)
-2021/06/04-12:11:31.476 338c Manual compaction at level-0 from '\x00[\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\\x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/07/01-11:37:14.586 3f40 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/07/01-11:37:14.587 3f40 Recovering log #45
+2021/07/01-11:37:14.588 3f40 Reusing old log C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000045.log 
+2021/07/01-11:37:14.589 3f40 Delete type=2 #44
+2021/07/01-11:37:16.017 e0 Manual compaction at level-0 from '\x00\x1e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/07/01-11:37:16.108 672c Manual compaction at level-0 from '\x00\x1f\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00 \x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/07/01-11:37:16.114 1710 Level-0 table #50: started
+2021/07/01-11:37:16.118 1710 Level-0 table #50: 66435 bytes OK
+2021/07/01-11:37:16.120 1710 Delete type=0 #45
+2021/07/01-11:37:16.120 1710 Manual compaction at level-0 from '\x00\x1d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1e\x00\x00\x00' @ 0 : 0; will stop at '\x00\x1f\x00\x00\xc8\x0b\x00S\x00W\x00H\x00e\x00a\x00l\x00t\x00h\x00L\x00o\x00g' @ 33646 : 1
+2021/07/01-11:37:16.120 1710 Compacting 1@0 + 1@1 files
+2021/07/01-11:37:16.124 1710 Generated table #51@0: 1394 keys, 18948 bytes
+2021/07/01-11:37:16.124 1710 Compacted 1@0 + 1@1 files => 18948 bytes
+2021/07/01-11:37:16.124 1710 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/07/01-11:37:16.125 1710 Delete type=2 #50
+2021/07/01-11:37:16.125 1710 Manual compaction at level-0 from '\x00\x1f\x00\x00\xc8\x0b\x00S\x00W\x00H\x00e\x00a\x00l\x00t\x00h\x00L\x00o\x00g' @ 33646 : 1 .. '\x00\x1e\x00\x00\x00' @ 0 : 0; will stop at (end)

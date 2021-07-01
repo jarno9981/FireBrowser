@@ -11,9 +11,6 @@
     <Setting Name="Engine" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="lasvisited" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="KidsBack" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://www.google.nl/</Value>
     </Setting>
@@ -25,6 +22,12 @@
     </Setting>
     <Setting Name="SafeBrowse" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="check" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AeroPeek" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

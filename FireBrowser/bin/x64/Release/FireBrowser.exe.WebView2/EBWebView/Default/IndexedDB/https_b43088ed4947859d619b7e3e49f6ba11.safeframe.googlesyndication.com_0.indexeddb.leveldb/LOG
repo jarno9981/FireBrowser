@@ -1,0 +1,6 @@
+2021/06/23-09:21:17.345 26c0 Creating DB C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_b43088ed4947859d619b7e3e49f6ba11.safeframe.googlesyndication.com_0.indexeddb.leveldb since it was missing.
+2021/06/23-09:21:17.355 26c0 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_b43088ed4947859d619b7e3e49f6ba11.safeframe.googlesyndication.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/06/23-09:24:46.907 4608 Level-0 table #5: started
+2021/06/23-09:24:46.909 4608 Level-0 table #5: 480 bytes OK
+2021/06/23-09:24:46.911 4608 Delete type=0 #3
+2021/06/23-09:24:46.912 4608 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

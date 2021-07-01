@@ -20,8 +20,16 @@ namespace FireBrowser
         {
             InitializeComponent();
 
-            AeroPeekEnabled = true;
-            TabRenderer = new ChromeTabRenderer(this);
+            if(FireBrowser.Properties.Settings.Default.AeroPeek == true)
+            {
+                AeroPeekEnabled = true;
+            }
+            else if (FireBrowser.Properties.Settings.Default.AeroPeek == false)
+            {
+                AeroPeekEnabled = false;
+            }
+
+            TabRenderer = new FireTabRenderer(this);
        
         }
 
@@ -30,8 +38,6 @@ namespace FireBrowser
 
             return new FireTitleTab(this)
             {
-                // The content will be an instance of another Form
-                // In our example, we will create a new instance of the Form1
                 Content = new Browser
                 {
                     Text = "Fire Browser"

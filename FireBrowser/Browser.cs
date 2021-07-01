@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Security;
 using System.Text;
@@ -14,11 +13,13 @@ using System.Windows.Forms;
 using FireTabs;
 using FireBrowser.Properties;
 using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.Core.Raw;
 using Microsoft.Web.WebView2.WinForms;
 using Microsoft.Win32;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics;
+using System.Management;
+using System.Net.NetworkInformation;
+using System.Linq;
 
 namespace FireBrowser
 {
@@ -27,20 +28,11 @@ namespace FireBrowser
         public Browser()
         {
             InitializeComponent();
-            InitializeAsync();
             panel3.Visible = false;
-            _cachePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FireBrowser");
-            bunifuPanel1.Visible = false;
-        }
-
-        private class NewTabLifespanHandler : ILifeSpanHandler
-        {
-            private Browser _tab;
-
-            public NewTabLifespanHandler(Browser tab)
-            {
-                _tab = tab;
-            }
+            ThreadPool.SetMinThreads(2, 2);
+            WebViewIsInstalled();
+            txtUrl.Text = FireBrowser.Properties.Settings.Default.EngineDefault;
+            web.Source = new Uri(FireBrowser.Properties.Settings.Default.EngineDefault);
         }
 
 
@@ -66,7 +58,6 @@ namespace FireBrowser
                     }
                 }
             }
-
             return false;
         }
 
@@ -78,8 +69,7 @@ namespace FireBrowser
                 UpdateTitleWithEvent("CoreWebView2InitializationCompleted failed");
                 return;
             }
-
-            
+ 
 
             this.web.CoreWebView2.SourceChanged += CoreWebView_SourceChanged;
             this.web.CoreWebView2.HistoryChanged += CoreWebView2_HistoryChanged;
@@ -93,11 +83,9 @@ namespace FireBrowser
         {
             Task[] tasks = new Task[4];
             tasks[1] = Task.Run(() => {
-
                 UpdateTitleWithEvent("HistoryChanged");
                 return 4;
-            });
-        
+            });      
         }
 
         
@@ -109,8 +97,6 @@ namespace FireBrowser
                 UpdateTitleWithEvent("SourceChanged");
                 return 6;
             });
-
-           
         }
 
         private void Texter()
@@ -152,7 +138,7 @@ namespace FireBrowser
             if (File.Exists(result + "Setup.ini"))
             {
                 return;
-                this.Visible = true;
+               
             }
             else
             {
@@ -170,30 +156,36 @@ namespace FireBrowser
 
             if(ContentCheck() == true)
             {
-                bunifuPanel1.Visible = true;
-                bunifuPanel1.BringToFront();
-                this.Text = "Unsafe";
-                UpdateTitleWithEvent("Not Safe");
-                UnsafeOrSafeChecker.Start();
-                txtUrl.Text = "http://www.NotAllowedHere.local/pass-protected-host";
+                web.CoreWebView2.GoBack();
             }
         }
 
         private bool ContentCheck()
-        {
+        { 
             List<string> FilteredWords = new List<string>()
           {
  
                 "sex",
             "porn",
             "dildo",
+            "hoer",
+            "Hoer",
+            "Kut",
+            "kut",
             "piemel",
             "guns",
             "gun",                  //list of censored words
             "ass",
             "tieten",
+            "fake-s-e-x",
+            "s-e-x",
              "2 girls 1 cup",
              "2 girls one cup",
+             "bluewafel",
+             "blue-wafel",
+             "Blue-wafel",
+             "Bluewafel",
+             "Bleuwafel",
              "2g1c",
              "4r5e",
              "5h1t",
@@ -1102,27 +1094,15 @@ namespace FireBrowser
             else if (FireBrowser.Properties.Settings.Default.SafeBrowse == false)
             {
                 return;
-                UnsafeOrSafeChecker.Stop();
             }
             if (FireBrowser.Properties.Settings.Default.History == true)
             {
-                AddHistory();
-              
+                AddHistory();              
             }
             else
             {
                 return;
-            }         
-            if (File.Exists("LastVisited.bin"))
-            {
-                Thread.Sleep(10);
-                string filename = "LastVisited.bin";
-                File.WriteAllText(filename, txtUrl.Text);
-            }
-            else
-            {
-                File.Create("LastVisited.bin");
-            }
+            }                   
         }
 
         private void AddHistory()
@@ -1170,8 +1150,7 @@ namespace FireBrowser
         private void web_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {           
             UpdateTitleWithEvent("");
-            Texter();
-       
+            Texter();      
         }
 
         private void txtSet()
@@ -1206,32 +1185,12 @@ namespace FireBrowser
                 web.CoreWebView2.Navigate(FireBrowser.Properties.Settings.Default.EngineDefault);
             }
           
-            if (txtUrl.Text.Contains("last")) 
-            {
-                if (FireBrowser.Properties.Settings.Default.lasvisited == true)
-                {
-                    FireBrowser.Properties.Settings.Default.lasvisited = false;
-                    FireBrowser.Properties.Settings.Default.Save();
-                    bunifuSnackbar1.Show(this, "LastVisit Off",
-                    Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Success);
-                }
-                else
-                {
-                    FireBrowser.Properties.Settings.Default.lasvisited = true;
-                    FireBrowser.Properties.Settings.Default.Save();
-                    bunifuSnackbar1.Show(this, "LastVisit On",
-                    Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Success);
-                }
-               
-            }
         }
 
         private void txtUrl_KeyUp(object sender, KeyEventArgs e)
-        {
-            
+        {          
             if (e.KeyCode == Keys.Enter && txtUrl.Text.Trim().Length > 0)
             {
-
                 if (txtUrl.Text.Contains("f:"))
                 {
                     txtSet();
@@ -1250,7 +1209,7 @@ namespace FireBrowser
                         }
                         else if (FireBrowser.Properties.Settings.Default.Engine == false)
                         {
-                            web.CoreWebView2.Navigate("https://www.bing.com/search?q=" + txtUrl.Text.Trim().Replace(" ", "+") + "&sourceid=opera&ie=UTF-8&oe=UTF-8");
+                            web.CoreWebView2.Navigate(FireBrowser.Properties.Settings.Default.EngineDefault + "search?q=" + txtUrl.Text.Trim().Replace(" ", "+"));
                         }
 
                     }
@@ -1301,8 +1260,11 @@ namespace FireBrowser
 
         private async void Browser_Load(object sender, EventArgs e)
         {
-            
             panel4.Visible = false;
+
+            var webView2Environment = await CoreWebView2Environment.CreateAsync(null, "C:\temp");
+            await web.EnsureCoreWebView2Async(webView2Environment);
+
             if (FireBrowser.Properties.Settings.Default.History == true)
             {
                 FireBrowser.Properties.Settings.Default.History = true;
@@ -1314,42 +1276,9 @@ namespace FireBrowser
                 Pauze.Visible = false;
                 FireBrowser.Properties.Settings.Default.History = false;
                 OnOf.Text = "History-Off";
-            }
-            await web.EnsureCoreWebView2Async();
-            web.CoreWebView2.ContainsFullScreenElementChanged += (obj, args) =>
-            {
-                this.FullScreen = web.CoreWebView2.ContainsFullScreenElement;
-              
-            };
-
-            if (FireBrowser.Properties.Settings.Default.lasvisited == true)
-            {
-                if (File.Exists("LastVisited.bin"))
-                {
-                    string file = "LastVisited.bin";
-                    txtUrl.Text = File.ReadAllText(file);
-                    Thread.Sleep(25);
-                    web.CoreWebView2.Navigate(txtUrl.Text.ToString());
-                }
-            }          
-            else
-            {
-                web.Source = new Uri(FireBrowser.Properties.Settings.Default.EngineDefault);
-                return;
-            }
-
-           
+            }         
         }
 
-      
-        async void InitializeAsync()
-        {
-            var webView2Environment = await CoreWebView2Environment.CreateAsync(null, _cachePath + "C:\temp");
-            await web.EnsureCoreWebView2Async(webView2Environment);
-            await web.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync("window.chrome.webview.postMessage(window.document.URL);");
-        }
-
-        private readonly string _cachePath;
 
         void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
@@ -1360,7 +1289,7 @@ namespace FireBrowser
         }
 
         private bool fullScreen = false;
-        private object parameters;
+
 
         [DefaultValue(false)]
         public bool FullScreen
@@ -1426,15 +1355,16 @@ namespace FireBrowser
             return;
         }
 
+
         private void IconWeb()
         {
-
+           
                 Invoke(new Action(() => txtUrl.Text.ToString()));
 
                 if (txtUrl.Text.Contains("https") && !faviconLoaded)
                 {
 
-                    Uri uri = new Uri(txtUrl.Text);
+                    Uri uri = new Uri(txtUrl.Text + web.Source.AbsoluteUri);
 
                     if (uri.Scheme == "https")
                     {
@@ -1446,7 +1376,7 @@ namespace FireBrowser
                             webRequest.UserAgent = "0Host";
                             webRequest.KeepAlive = false;
                             webRequest.AllowAutoRedirect = true;
-
+                          
                             WebResponse response = webRequest.GetResponse();
                             Stream stream = response.GetResponseStream();
 
@@ -1467,7 +1397,7 @@ namespace FireBrowser
                                     Invoke(new Action(() =>
                                     {
                                         Icon = new Icon(ms);
-
+                                   
                                         ParentTabs.UpdateThumbnailPreviewIcon(ParentTabs.Tabs.Single(t => t.Content == this));
                                         ParentTabs.RedrawTabs();
                                     }));
@@ -1487,6 +1417,7 @@ namespace FireBrowser
         }
 
         public static Icon DefaultIcon { get; internal set; }
+        public object Response { get; private set; }
 
         private void txtUrl_DragDrop(object sender, DragEventArgs e)
         {
@@ -1581,7 +1512,7 @@ namespace FireBrowser
             else if (FireBrowser.Properties.Settings.Default.SafeBrowse == false)
             {
                 return;
-                UnsafeOrSafeChecker.Stop();
+                
             }
         }
 
@@ -1596,14 +1527,19 @@ namespace FireBrowser
             var code = e.Response.StatusCode;
         }
 
-        private void Report_Click(object sender, EventArgs e)
+
+        private void web_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
-            string filename = "report\\report.txt";
-            File.WriteAllText(filename, txtUrl.Text);
-            string back = FireBrowser.Properties.Settings.Default.KidsBack;
-            web.CoreWebView2.Navigate(back);
-            bunifuPanel1.Visible = false;
-            txtUrl.Text = "https://www.google.nl/";
+            ThreadPool.SetMinThreads(2, 2);
+        }
+
+        private void txtUrl_TextChange(object sender, EventArgs e)
+        {
+            if(txtUrl.Text == "youtube/")
+            {
+                txtUrl.Text = "https://www.youtube.com/results?search_query=";
+                txtUrl.Focus();
+            }
         }
     }
 }

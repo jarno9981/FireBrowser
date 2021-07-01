@@ -1,6 +1,3 @@
-2021/06/04-12:10:07.110 b4c Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2021/06/04-12:10:07.111 b4c Recovering log #289
-2021/06/04-12:10:07.113 b4c Reusing old log C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000289.log 
-2021/06/04-12:10:21.076 b4c Level-0 table #292: started
-2021/06/04-12:10:21.079 b4c Level-0 table #292: 27266 bytes OK
-2021/06/04-12:10:21.080 b4c Delete type=0 #289
+2021/06/30-11:54:39.100 30f0 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2021/06/30-11:54:39.102 30f0 Recovering log #4
+2021/06/30-11:54:39.104 30f0 Reusing old log C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000004.log 
