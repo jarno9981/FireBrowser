@@ -3,21 +3,24 @@
 Based on WebView 2  , want change to my own engine in future help needed
 Features Webview 2 latest pre-release
 
-Tabs Are Based On The EasyEda Libary (https://github.com/lstratman/EasyTabs)
+Tabs Are Based On The EasyEda Libary (https://github.com/jarno9981/FireTabs)
+
 This one is highly costimized
 
 Supported
 - [x] Navigating
-- [x] Eventmonitor
+- [x] basic ad blocker 10 - 18% blocks succeed
+- [x] basic child safe web 700+ words that aren't allowed
+- [x] history
 
 Features Building (Help Needed) C#
 - [ ] ignotic
 - [ ] download handeler
 - [ ] Beter Settings
 - [ ] own dev tool
-- [ ] history
-- [ ] in buildt ad-blocker
 
+# FireBrowser 2021 Design Tabs Changed
+![updatedesign2021](https://user-images.githubusercontent.com/53493418/122013348-619b9a80-cdbe-11eb-920e-869a9cab1ba8.png)
 
 # FireBrowser Updated Design
 
