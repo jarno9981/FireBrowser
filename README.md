@@ -28,3 +28,7 @@ C-sharp
 - [ ] re-design
 - [ ] extra features
 - [ ] make audio tuner 
+
+# Contact
+
+github = jarno9981 Issues Repo 
