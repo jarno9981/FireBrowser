@@ -25,6 +25,6 @@ C-sharp
 
 # To-Do
 
-1. = [ ] re-design
-2. = [ ] extra features
-3. = [ ] make audio tuner 
+- [ ] re-design
+- [ ] extra features
+- [ ] make audio tuner 
