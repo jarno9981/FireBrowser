@@ -1,4 +1,0 @@
-2021/06/25-21:01:59.976 4d60 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/06/25-21:01:59.977 4d60 Recovering log #3
-2021/06/25-21:01:59.980 4d60 Reusing old log C:\Users\jarno\source\repos\FireBrowser-main\FireBrowser-main\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000003.log 
-2021/06/25-21:02:00.807 50d8 Manual compaction at level-0 from '\x00\x05\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at (end)

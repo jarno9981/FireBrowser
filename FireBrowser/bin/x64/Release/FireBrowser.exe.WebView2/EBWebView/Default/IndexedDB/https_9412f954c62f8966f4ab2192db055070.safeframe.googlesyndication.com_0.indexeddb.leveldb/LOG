@@ -1,5 +1,0 @@
-2021/04/15-14:32:20.832 1ed4 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_9412f954c62f8966f4ab2192db055070.safeframe.googlesyndication.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/04/15-14:32:30.340 1ed4 Level-0 table #5: started
-2021/04/15-14:32:30.344 1ed4 Level-0 table #5: 439 bytes OK
-2021/04/15-14:32:30.346 1ed4 Delete type=0 #3
-2021/04/15-14:32:30.347 1ed4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

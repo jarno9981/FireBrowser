@@ -1,8 +1,0 @@
-2021/05/04-12:05:35.934 48d0 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.samsung.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/05/04-12:05:35.935 48d0 Recovering log #4
-2021/05/04-12:05:35.935 48d0 Reusing old log C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_www.samsung.com_0.indexeddb.leveldb/000004.log 
-2021/05/04-12:07:15.239 145c Level-0 table #8: started
-2021/05/04-12:07:15.239 145c Level-0 table #8: 0 bytes OK
-2021/05/04-12:07:15.243 145c Delete type=0 #4
-2021/05/04-12:07:15.244 145c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
-2021/05/04-12:07:15.245 145c Manual compaction at level-1 from (begin) .. (end); will stop at (end)

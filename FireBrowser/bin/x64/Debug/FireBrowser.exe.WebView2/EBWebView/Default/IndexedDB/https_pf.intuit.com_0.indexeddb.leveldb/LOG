@@ -1,6 +1,0 @@
-2021/04/30-18:59:53.315 5218 Creating DB C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_pf.intuit.com_0.indexeddb.leveldb since it was missing.
-2021/04/30-18:59:53.346 5218 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Debug\FireBrowser.exe.WebView2\EBWebView\Default\IndexedDB\https_pf.intuit.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/04/30-18:59:59.052 5218 Level-0 table #5: started
-2021/04/30-18:59:59.059 5218 Level-0 table #5: 1218 bytes OK
-2021/04/30-18:59:59.063 5218 Delete type=0 #3
-2021/04/30-18:59:59.064 5218 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
