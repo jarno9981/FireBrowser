@@ -1,6 +1,8 @@
 # FireBrowser
 Webview 2 browser latest pre-release 
 
+Please download x64 fixed runtime tp use and place files in the bin / firebrowser webview folder
+
 works with edge / edge beta
 
 Stand alone mode now availeble no edge needed
