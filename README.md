@@ -3,12 +3,14 @@ Webview 2 browser latest pre-release
 
 Please download x64 fixed runtime tp use and place files in the bin / firebrowser webview folder
 
+.net 4.8 framework (FireTabs stable) / FireTabsNet5 is on nuget to alpha version
+
 works with edge / edge beta
 
 Stand alone mode now availeble no edge needed
 
 # Settings & Supported
-Acces by ( f:set:quick / f:settings / right click tray icon )
+Acces by ( f:set:quick / f:settings  )
 
 1. = set scripts
 2. = set pop-ups
