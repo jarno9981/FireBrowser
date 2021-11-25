@@ -1,0 +1,8 @@
+<assembly
+  xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+  <assemblyIdentity
+      name='96.0.1054.34'
+      version='96.0.1054.34'
+      type='win32'/>
+  <file name='msedge_elf.dll'/>
+</assembly>

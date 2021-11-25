@@ -1212,6 +1212,355 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton">
+            <summary>
+            Provides a rich and customizable User Control in 
+            place of the standard Windows Forms User Control.
+            </summary>
+            <seealso cref="T:System.Windows.Forms.UserControl" />
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton"/>.
+            </summary>
+        </member>
+        <member name="T:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles">
+            <summary>
+            Provides a list of styles that can be applied within the control.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Flat">
+            <summary>
+            Applies a flat (square-finish) control design.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Round">
+            <summary>
+            Applies a rounded control design.
+            </summary>
+        </member>
+        <member name="T:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles">
+            <summary>
+            Provides different border style options.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Solid">
+            <summary>
+            A solid border.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Dash">
+            <summary>
+            A dashed border.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.Dot">
+            <summary>
+            A dotted border.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.DashDot">
+            <summary>
+            A dashed and dotted recursive border.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyles.DashDotDot">
+            <summary>
+            A dashed, dotted-dotted recursive border.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.AllowAnimations">
+            <summary>
+            Gets or sets a value indicating whether animations
+            will be allowed when the control is active.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.AllowMouseEffects">
+            <summary>
+            Gets or sets a value indicating whether mouse effects will 
+            be allowed whenever mouse-events are being captured.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.AllowBorderColorChanges">
+            <summary>
+            Gets or sets a value indicating whether border-color-changes
+            will be allowed whenever mouse-events are being captured.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ShowBorders">
+            <summary>
+            Gets or sets a value indicating whether borders
+            will be displayed along the control's edges.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.RoundBorders">
+            <summary>
+            Gets or sets a value indicating whether 
+            the borders will be automatically rounded.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderThickness">
+            <summary>
+            Gets or sets the control's Border Thickness.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderRadius">
+            <summary>
+            Gets or sets the control's Border Radius.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.AnimationSpeed">
+            <summary>
+            Gets or sets the amount of time required for an
+            animation to be played; examples of animations provided
+            include MouseHover and MouseDown event animations.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ColorContrastOnHover">
+            <summary>
+            Sets how dark or light the control's Color will 
+            be whenever a mouse-hover event has occurred.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ColorContrastOnClick">
+            <summary>
+            Sets how dark or light (as a percentage) the control's 
+            Color will be whenever a mouse-click event has occurred.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BackgroundColor">
+            <summary>
+            Gets or sets the control's Back Color.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderColor">
+            <summary>
+            Gets or sets the control's Border Color.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Image">
+            <summary>
+            Gets or sets an image within the control.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ImageMargin">
+            <summary>
+            Gets or sets the Image's margin, that is, the 
+            distance between the Image and its surrounding borders.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.DialogResult">
+            <summary>
+            Gets or sets the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.DialogResult"/> 
+            returned by the Icon Button.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Style">
+            <summary>
+            Gets or sets the control's style with
+            regards to its border-region.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyle">
+            <summary>
+            [Beta] Gets or sets the border style.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.CustomizableEdges">
+            <summary>
+            Gets or sets the list of border edges that will 
+            be customized whenever the border radius is applied.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.DrawingRectangle">
+            <summary>
+            Gets the control's drawing rectangle where
+            customization takes place. This refers to
+            the canvas area where drawing takes place.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Text">
+            <summary>
+            Gets or sets the control's text.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BackColor">
+            <summary>
+            Gets or sets the default control's back color.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.IsDefault">
+            <summary>
+            Gets or sets a value indicating whether the 
+            button instance is the default button.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Font">
+            <summary>
+            Gets or sets the default control's font.
+            </summary>
+        </member>
+        <member name="T:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges">
+            <summary>
+            Includes the list of available border edges or dimensions 
+            that can be customized or excluded when styling controls.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges"/> class.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges.TopLeft">
+            <summary>
+             Gets or sets a value indicating whether 
+             the top-left edge will be included.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges.TopRight">
+            <summary>
+             Gets or sets a value indicating whether 
+             the top-right edge will be included.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges.BottomLeft">
+            <summary>
+             Gets or sets a value indicating whether 
+             the bottom-left edge will be included.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges.BottomRight">
+            <summary>
+             Gets or sets a value indicating whether 
+             the bottom-right edge will be included.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderEdges.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> containing the 
+            list of properties and their applied values.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.NotifyDefault(System.Boolean)">
+            <summary>
+            Notifies the Button whether it is the default button 
+            so that it can adjust its appearance accordingly.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.PerformClick">
+            <summary>
+            Generates a 'Click' event for the button.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Redraw(System.Drawing.Graphics)">
+            <summary>
+            Invalidates the entire control's surface.
+            </summary>
+            <param name="graphics">The <see cref="T:System.Drawing.Graphics"/> object to be used.</param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ChangeColor(System.Drawing.Bitmap,System.Drawing.Color)">
+            <summary>
+            Changes a bitmap's color.
+            </summary>
+            <param name="image">
+            The bitmap image.
+            </param>
+            <param name="color">
+            The new bitmap color.
+            </param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ChangeColor(System.Drawing.Color)">
+            <summary>
+            Changes a bitmap's color.
+            </summary>
+            <param name="color">
+            The new bitmap color.
+            </param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.DrawCanvas(System.Drawing.Graphics,System.Int32,System.Int32,System.Drawing.Color,System.Drawing.Color,Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles)">
+            <summary>
+            Draws a user-defined Graphics canvas.
+            </summary>
+            <param name="graphics">The Graphics canvas.</param>
+            <param name="radius">The canvas corner radius.</param>
+            <param name="borderThickness">The canvas border thickness.</param>
+            <param name="borderColor">The canvas border color.</param>
+            <param name="backColor">The canvas background color.</param>
+            <param name="style">The canvas control style.</param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.SetDefaults">
+            <summary>
+            Applies the control's default properties.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ShowBordersChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ShowBorders"/> property has been changed.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BackgroundColorChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BackgroundColor"/> property has been changed.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderColorChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderColor"/> property has been changed.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderRadiusChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderRadius"/> property has been changed.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderThicknessChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderThickness"/> property has been changed.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BunifuStyleChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Style"/> property has been changed.
+            </summary>
+        </member>
+        <member name="E:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyleChanged">
+            <summary>
+            Raised whenever the <see cref="P:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BorderStyle"/> property has been changed.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BunifuControlActionList.ChooseImage">
+            <summary>
+            Select the image displayed in the PictureBox.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.BunifuControlActionList.Refresh">
+            <summary>
+            Invaidates the control's surface.
+            </summary>
+        </member>
+        <member name="F:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Bunifu.UI.WinForms.BunifuButton.ContrastValueUIEditor">
+            <summary>
+            Provides a standard Contrast Dropdown UI Editor.
+            </summary>
+        </member>
         <member name="T:Bunifu.UI.WinForms.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -1226,6 +1575,11 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Bunifu.UI.WinForms.Properties.Resources.bunifu_sample_icon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="T:Utilities.BunifuButton.Extensions.ColorExtensions">
@@ -1826,6 +2180,23 @@
             or we are on the same thread as the target, then the event is fired on the same
             thread as this is called from.
             </remarks>
+        </member>
+        <member name="F:Utilities.BunifuButton.Views.ContrastValueEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Utilities.BunifuButton.Views.ContrastValueEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Utilities.BunifuButton.Views.ContrastValueEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
     </members>
 </doc>

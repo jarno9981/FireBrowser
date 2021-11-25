@@ -20,11 +20,26 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using FireBrowser.Properties;
 using FireBrowser.Converters;
+using System.Net.Http;
+using System.Security.Cryptography;
+using Newtonsoft.Json;
 
 namespace FireBrowser
 {
     public partial class BrowserWindow : Form
     {
+        #region googleapi
+        const string clientID = "372651526417-bsdc7vmal1mckv5ug059jbekf6k4d10p.apps.googleusercontent.com";
+        const string clientSecret = "AIzaSyBJ1bqb7DXlfLgSzygeerR_xny0PlCbGCY";
+        const string authorizationEndpoint = "https://accounts.google.com/o/oauth2/v2/auth";
+        const string tokenEndpoint = "https://www.googleapis.com/oauth2/v4/token";
+        const string userInfoEndpoint = "https://www.googleapis.com/oauth2/v3/userinfo";
+
+       
+
+
+        #endregion
+
         private bool faviconLoaded;
      
         private void imagesbuttons()
@@ -44,7 +59,6 @@ namespace FireBrowser
 
         IOptimize optimize = new IOptimize();
         DownloadI download = new DownloadI();
-
         public BrowserWindow()
         {
             download.GetHashCode();
@@ -53,7 +67,8 @@ namespace FireBrowser
             RunningBackgroundThread();
             imagesbuttons();
 
-            
+         
+
             if (FireBrowser.Properties.Settings.Default.falseUnlock == false)
             {
                 FireBrowser.Properties.Settings.Default.falseUnlock = true;
@@ -220,8 +235,6 @@ namespace FireBrowser
             // Create response object for custom response and set it
             var environment = newWeb.CoreWebView2.Environment;
 
-            // statusCode will now be accessible and equal to 403
-            var code = e.Response.StatusCode;
         }
 
         private void CoreWebView_SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
@@ -230,6 +243,9 @@ namespace FireBrowser
         }
 
         #endregion
+
+
+        private readonly HttpClient _httpClient = new HttpClient();
 
         #region asyncbrowserwindow
         private async void BrowserWindow_Load(object sender, EventArgs e)
@@ -241,6 +257,8 @@ namespace FireBrowser
                 Language = "NL-nl"
             };
 
+  
+
             txtUrl.PlaceholderText = FireBrowser.Properties.Settings.Default.Placeholder;
             txtUrl.ForeColor = FireBrowser.Properties.Settings.Default.ForeColor;
 
@@ -248,13 +266,16 @@ namespace FireBrowser
         }
         #endregion
 
+       
+
         #region done/start
 
         string originalUserAgent = "";
 
         private void newWeb_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
-                     bunifuLoader1.BringToFront();
+
+            bunifuLoader1.BringToFront();
             bunifuLoader1.Visible = true;
 
             ThreadPool.SetMinThreads(2, 2);
@@ -263,8 +284,10 @@ namespace FireBrowser
 
             if (new Uri(e.Uri).Host.Contains("accounts.google.com"))
             {
+            
                 if (newWeb.CoreWebView2 != null)
                 {
+                  
                     var settings = newWeb.CoreWebView2.Settings;
                     if (settings.UserAgent != "Chrome")
                         originalUserAgent = settings.UserAgent;
@@ -290,7 +313,6 @@ namespace FireBrowser
         Bitmap iconleft = new Bitmap(@"Images\\textboxicon\\left.png");
         private void newWeb_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            
             CheckYesNo();
             if(FireBrowser.Properties.Settings.Default.safe == true)
             {
@@ -580,14 +602,7 @@ namespace FireBrowser
                     return;
                 }
             }
-            if (txtUrl.Text.Contains("ina"))
-            {
-                OnBecomingInactive();
-            }
-            if (txtUrl.Text.Contains("ona"))
-            {
-                OnBecomingActive();
-            }
+
             if (txtUrl.Text.Contains("set:quick"))
             {
                 FireBrowser.forms.Settings settings = new FireBrowser.forms.Settings();
@@ -1722,6 +1737,8 @@ namespace FireBrowser
         {
             Privacy prv = new Privacy();
             prv.Show();
+            
+            
         }
 
         private void bunifuLoader1_Click(object sender, EventArgs e)
@@ -1749,22 +1766,27 @@ namespace FireBrowser
             settingsmenu();
         }
 
-
-        async protected void OnBecomingInactive()
+        private void newWeb_DragDrop(object sender, DragEventArgs e)
         {
-            if(newWeb.CoreWebView2.MemoryUsageTargetLevel == CoreWebView2MemoryUsageTargetLevel.Normal)
-            {
-                newWeb.CoreWebView2.MemoryUsageTargetLevel = CoreWebView2MemoryUsageTargetLevel.Low;
-            }        
-        }
-       
-        async protected void OnBecomingActive()
-        {
-            if (newWeb.CoreWebView2.MemoryUsageTargetLevel == CoreWebView2MemoryUsageTargetLevel.Low)
-            {
-                newWeb.CoreWebView2.MemoryUsageTargetLevel = CoreWebView2MemoryUsageTargetLevel.Normal;
-            }
+            string[] files = e.Data.GetData(DataFormats.FileDrop) as string[]; // get all files droppeds  
+            if (files != null && files.Any())
+                txtUrl.Text = files.First(); //select the first one  
+            Thread.Sleep(200);
+            newWeb.CoreWebView2.Navigate(txtUrl.Text);
+          
         }
 
+        private void newWeb_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void txtUrl_OnIconRightClick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

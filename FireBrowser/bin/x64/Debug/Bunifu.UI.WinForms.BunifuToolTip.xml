@@ -403,11 +403,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:Bunifu.UI.WinForms.HTMLUIEditor">
-            <summary>
-            Provides a standard HTML Dropdown UI Editor.
-            </summary>
-        </member>
         <member name="T:Utilities.BunifuToolTip.Transitions.IManagedType">
             <summary>
             Interface for all types we can perform transitions on. 

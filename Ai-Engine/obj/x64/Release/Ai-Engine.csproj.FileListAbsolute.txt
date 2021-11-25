@@ -1,0 +1,11 @@
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\bin\x64\Release\Ai-Engine.exe.config
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\bin\x64\Release\Ai-Engine.exe
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\bin\x64\Release\Ai-Engine.pdb
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai-Engine.csproj.AssemblyReference.cache
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai-Engine.csproj.SuggestedBindingRedirects.cache
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai_Engine.Ai.resources
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai_Engine.Properties.Resources.resources
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai-Engine.csproj.GenerateResource.cache
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai-Engine.csproj.CoreCompileInputs.cache
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai-Engine.exe
+C:\Users\jarno\source\repos\FireBrowser\Ai-Engine\obj\x64\Release\Ai-Engine.pdb

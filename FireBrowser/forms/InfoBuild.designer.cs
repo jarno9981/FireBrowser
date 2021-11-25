@@ -74,7 +74,7 @@ namespace FireBrowser.forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 144);
+            this.label2.Location = new System.Drawing.Point(21, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 22);
             this.label2.TabIndex = 4;
@@ -111,8 +111,9 @@ namespace FireBrowser.forms
             // 
             // InfoBuild
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

@@ -16,7 +16,7 @@ namespace FireBrowser
     {
         public WebContainer()
         {
-          
+            
             InitializeComponent();
             TabRenderer = new FireTabRenderer(this);
 
@@ -29,7 +29,10 @@ namespace FireBrowser
             {
                 return;
             }
+         
+            Process.Start("Ai-Engine.exe");                
         }
+
 
         public override FireTitleTab CreateTab()
         {

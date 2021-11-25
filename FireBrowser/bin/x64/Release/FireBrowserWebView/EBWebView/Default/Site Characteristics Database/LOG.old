@@ -1,3 +1,2 @@
-2021/11/19-15:59:56.569 6aa0 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
-2021/11/19-15:59:56.570 6aa0 Recovering log #3
-2021/11/19-15:59:56.572 6aa0 Reusing old log C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Site Characteristics Database/000003.log 
+2021/11/25-12:46:55.625 1c3c Creating DB C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Site Characteristics Database since it was missing.
+2021/11/25-12:46:55.636 1c3c Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Site Characteristics Database/MANIFEST-000001

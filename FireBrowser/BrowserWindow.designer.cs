@@ -57,6 +57,7 @@ namespace FireBrowser
             this.keyword = new Bunifu.UI.WinForms.BunifuTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.rnd = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuToolTip1 = new Bunifu.UI.WinForms.BunifuToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.newWeb)).BeginInit();
             this.quicksearch.SuspendLayout();
@@ -77,6 +78,9 @@ namespace FireBrowser
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1113, 53);
             this.panel1.TabIndex = 5;
+            this.bunifuToolTip1.SetToolTip(this.panel1, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.panel1, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.panel1, "");
             // 
             // btnSettings
             // 
@@ -109,6 +113,9 @@ namespace FireBrowser
             this.btnSettings.Size = new System.Drawing.Size(44, 44);
             this.btnSettings.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Flat;
             this.btnSettings.TabIndex = 10;
+            this.bunifuToolTip1.SetToolTip(this.btnSettings, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnSettings, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnSettings, "");
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnRefresh
@@ -141,6 +148,9 @@ namespace FireBrowser
             this.btnRefresh.Size = new System.Drawing.Size(44, 44);
             this.btnRefresh.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Flat;
             this.btnRefresh.TabIndex = 9;
+            this.bunifuToolTip1.SetToolTip(this.btnRefresh, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnRefresh, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnRefresh, "");
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnForward
@@ -173,6 +183,9 @@ namespace FireBrowser
             this.btnForward.Size = new System.Drawing.Size(42, 42);
             this.btnForward.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Flat;
             this.btnForward.TabIndex = 8;
+            this.bunifuToolTip1.SetToolTip(this.btnForward, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnForward, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnForward, "");
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
             // btnBack
@@ -205,6 +218,9 @@ namespace FireBrowser
             this.btnBack.Size = new System.Drawing.Size(42, 42);
             this.btnBack.Style = Bunifu.UI.WinForms.BunifuButton.BunifuIconButton.ButtonStyles.Flat;
             this.btnBack.TabIndex = 7;
+            this.bunifuToolTip1.SetToolTip(this.btnBack, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.btnBack, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.btnBack, "");
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // txtUrl
@@ -283,10 +299,14 @@ namespace FireBrowser
             this.txtUrl.TextMarginLeft = 3;
             this.txtUrl.TextMarginTop = 1;
             this.txtUrl.TextPlaceholder = "Enter Url Or Search Here";
+            this.bunifuToolTip1.SetToolTip(this.txtUrl, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.txtUrl, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.txtUrl, "");
             this.txtUrl.UseSystemPasswordChar = false;
             this.txtUrl.WordWrap = true;
             this.txtUrl.TextChange += new System.EventHandler(this.txtUrl_TextChange_1);
             this.txtUrl.OnIconLeftClick += new System.EventHandler(this.txtUrl_OnIconLeftClick);
+            this.txtUrl.OnIconRightClick += new System.EventHandler(this.txtUrl_OnIconRightClick);
             this.txtUrl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUrl_KeyUp_1);
             this.txtUrl.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtUrl_DragDrop_1);
             this.txtUrl.DragOver += new System.Windows.Forms.DragEventHandler(this.txtUrl_DragOver);
@@ -314,6 +334,9 @@ namespace FireBrowser
             this.bunifuLoader1.Text = "...";
             this.bunifuLoader1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuLoader1.Thickness = 5;
+            this.bunifuToolTip1.SetToolTip(this.bunifuLoader1, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.bunifuLoader1, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.bunifuLoader1, "");
             this.bunifuLoader1.Transparent = true;
             this.bunifuLoader1.Click += new System.EventHandler(this.bunifuLoader1_Click);
             // 
@@ -326,12 +349,17 @@ namespace FireBrowser
             this.newWeb.Name = "newWeb";
             this.newWeb.Size = new System.Drawing.Size(1113, 578);
             this.newWeb.TabIndex = 6;
+            this.bunifuToolTip1.SetToolTip(this.newWeb, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.newWeb, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.newWeb, "");
             this.newWeb.ZoomFactor = 1D;
             this.newWeb.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.newWeb_CoreWebView2InitializationCompleted);
             this.newWeb.NavigationStarting += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs>(this.newWeb_NavigationStarting);
             this.newWeb.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.newWeb_NavigationCompleted);
             this.newWeb.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.newWeb_SourceChanged);
             this.newWeb.Click += new System.EventHandler(this.newWeb_Click);
+            this.newWeb.DragDrop += new System.Windows.Forms.DragEventHandler(this.newWeb_DragDrop);
+            this.newWeb.DragOver += new System.Windows.Forms.DragEventHandler(this.newWeb_DragOver);
             // 
             // snack
             // 
@@ -411,6 +439,9 @@ namespace FireBrowser
             this.quicksearch.Name = "quicksearch";
             this.quicksearch.Size = new System.Drawing.Size(654, 54);
             this.quicksearch.TabIndex = 7;
+            this.bunifuToolTip1.SetToolTip(this.quicksearch, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.quicksearch, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.quicksearch, "");
             this.quicksearch.Visible = false;
             // 
             // pictureBox1
@@ -423,6 +454,9 @@ namespace FireBrowser
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.bunifuToolTip1.SetToolTip(this.pictureBox1, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.pictureBox1, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.pictureBox1, "");
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // keyword
@@ -497,18 +531,57 @@ namespace FireBrowser
             this.keyword.TextMarginLeft = 3;
             this.keyword.TextMarginTop = 1;
             this.keyword.TextPlaceholder = "Enter KeyWord";
+            this.bunifuToolTip1.SetToolTip(this.keyword, "");
+            this.bunifuToolTip1.SetToolTipIcon(this.keyword, null);
+            this.bunifuToolTip1.SetToolTipTitle(this.keyword, "");
             this.keyword.UseSystemPasswordChar = false;
             this.keyword.WordWrap = true;
             this.keyword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyword_KeyUp);
             // 
             // timer1
             // 
+            this.timer1.Interval = 250;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // rnd
             // 
             this.rnd.ElipseRadius = 10;
             this.rnd.TargetControl = this.quicksearch;
+            // 
+            // bunifuToolTip1
+            // 
+            this.bunifuToolTip1.Active = true;
+            this.bunifuToolTip1.AlignTextWithTitle = false;
+            this.bunifuToolTip1.AllowAutoClose = false;
+            this.bunifuToolTip1.AllowFading = true;
+            this.bunifuToolTip1.AutoCloseDuration = 5000;
+            this.bunifuToolTip1.BackColor = System.Drawing.SystemColors.Control;
+            this.bunifuToolTip1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.bunifuToolTip1.ClickToShowDisplayControl = false;
+            this.bunifuToolTip1.ConvertNewlinesToBreakTags = true;
+            this.bunifuToolTip1.DisplayControl = null;
+            this.bunifuToolTip1.EntryAnimationSpeed = 350;
+            this.bunifuToolTip1.ExitAnimationSpeed = 200;
+            this.bunifuToolTip1.GenerateAutoCloseDuration = false;
+            this.bunifuToolTip1.IconMargin = 6;
+            this.bunifuToolTip1.InitialDelay = 0;
+            this.bunifuToolTip1.Name = "bunifuToolTip1";
+            this.bunifuToolTip1.Opacity = 1D;
+            this.bunifuToolTip1.OverrideToolTipTitles = false;
+            this.bunifuToolTip1.Padding = new System.Windows.Forms.Padding(10);
+            this.bunifuToolTip1.ReshowDelay = 100;
+            this.bunifuToolTip1.ShowAlways = true;
+            this.bunifuToolTip1.ShowBorders = false;
+            this.bunifuToolTip1.ShowIcons = true;
+            this.bunifuToolTip1.ShowShadows = true;
+            this.bunifuToolTip1.Tag = null;
+            this.bunifuToolTip1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuToolTip1.TextForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuToolTip1.TextMargin = 2;
+            this.bunifuToolTip1.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.bunifuToolTip1.TitleForeColor = System.Drawing.Color.Black;
+            this.bunifuToolTip1.ToolTipPosition = new System.Drawing.Point(0, 0);
+            this.bunifuToolTip1.ToolTipTitle = null;
             // 
             // BrowserWindow
             // 
@@ -546,5 +619,6 @@ namespace FireBrowser
         private Bunifu.UI.WinForms.BunifuButton.BunifuIconButton btnForward;
         private Bunifu.UI.WinForms.BunifuButton.BunifuIconButton btnRefresh;
         private Bunifu.UI.WinForms.BunifuButton.BunifuIconButton btnSettings;
+        private Bunifu.UI.WinForms.BunifuToolTip bunifuToolTip1;
     }
 }

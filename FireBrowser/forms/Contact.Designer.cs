@@ -39,7 +39,7 @@ namespace FireBrowser.forms
             this.lbl.AutoSize = true;
             this.lbl.Location = new System.Drawing.Point(12, 9);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(124, 17);
+            this.lbl.Size = new System.Drawing.Size(116, 16);
             this.lbl.TabIndex = 0;
             this.lbl.Text = "Contact Info Below";
             // 
@@ -54,8 +54,9 @@ namespace FireBrowser.forms
             // 
             // Contact
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(668, 106);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lbl);

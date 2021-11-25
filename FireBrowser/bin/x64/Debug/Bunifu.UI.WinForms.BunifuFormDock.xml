@@ -490,27 +490,6 @@
             available to use in order to guide them on the component's usage.
             </summary>
         </member>
-        <member name="M:Bunifu.UI.WinForms.BunifuFormDock.OnLoad(System.Object,System.EventArgs)">
-            <summary>
-            Raises the parent form's "OnLoad" event.
-            </summary>
-            <param name="sender">The sender control.</param>
-            <param name="e">Provides data for the parent form's "OnLoad" event. </param>
-        </member>
-        <member name="M:Bunifu.UI.WinForms.BunifuFormDock.OnResizeEnd(System.Object,System.EventArgs)">
-            <summary>
-            Raises the parent form's "OnResizeEnd" event.
-            </summary>
-            <param name="sender">The sender control.</param>
-            <param name="e">Provides data for the parent form's "OnResizeEnd" event. </param>
-        </member>
-        <member name="M:Bunifu.UI.WinForms.BunifuFormDock.OnKeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
-            <summary>
-            Raises the component's "KeyDown" event.
-            </summary>
-            <param name="sender">The sender control.</param>
-            <param name="e">Provides data for the control's "KeyDown" event. </param>
-        </member>
         <member name="E:Bunifu.UI.WinForms.BunifuFormDock.FormDragging">
             <summary>
             Occurs whenever the parent form is being dragged.
@@ -591,6 +570,27 @@
             <param name="sender">The sender control.</param>
             <param name="e">Provides data for the control's "MouseDoubleClick" event. </param>
         </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuFormDock.OnLoad(System.Object,System.EventArgs)">
+            <summary>
+            Raises the parent form's "OnLoad" event.
+            </summary>
+            <param name="sender">The sender control.</param>
+            <param name="e">Provides data for the parent form's "OnLoad" event. </param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuFormDock.OnResizeEnd(System.Object,System.EventArgs)">
+            <summary>
+            Raises the parent form's "OnResizeEnd" event.
+            </summary>
+            <param name="sender">The sender control.</param>
+            <param name="e">Provides data for the parent form's "OnResizeEnd" event. </param>
+        </member>
+        <member name="M:Bunifu.UI.WinForms.BunifuFormDock.OnKeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Raises the component's "KeyDown" event.
+            </summary>
+            <param name="sender">The sender control.</param>
+            <param name="e">Provides data for the control's "KeyDown" event. </param>
+        </member>
         <member name="T:Bunifu.UI.WinForms.BunifuFormDock.BunifuComponentActionList">
             <summary>
             Initializes a new instance of the <see cref="T:Bunifu.UI.WinForms.BunifuFormDock.BunifuComponentActionList"/> class.
@@ -617,11 +617,6 @@
             <summary>
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="T:Bunifu.UI.WinForms.DragControlsUIEditor">
-            <summary>
-            Provides a standard drag-controls-selection Dropdown UI Editor.
             </summary>
         </member>
         <member name="T:Bunifu.UI.WinForms.WindowHandler">
@@ -769,23 +764,6 @@
             <summary>
             Returns a <see cref="T:System.String"/> containing the list of Form Border Options 
             provided and their applied property values separated by semi-colons.
-            </summary>
-        </member>
-        <member name="F:Bunifu.UI.WinForms.Indicator.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Bunifu.UI.WinForms.Indicator.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Bunifu.UI.WinForms.Indicator.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:Utilities.BunifuFormDock.Transitions.IManagedType">
@@ -1394,6 +1372,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:Utilities.BunifuFormDock.DragControlsEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Utilities.BunifuFormDock.Views.Indicator.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Utilities.BunifuFormDock.Views.Indicator.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Utilities.BunifuFormDock.Views.Indicator.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.

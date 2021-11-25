@@ -1,3 +1,2 @@
-2021/11/03-09:44:36.371 4518 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Debug\FireBrowserWebView\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
-2021/11/03-09:44:36.372 4518 Recovering log #3
-2021/11/03-09:44:36.372 4518 Reusing old log C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Debug\FireBrowserWebView\EBWebView\Default\shared_proto_db\metadata/000003.log 
+2021/11/25-12:45:05.465 52d4 Creating DB C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Debug\FireBrowserWebView\EBWebView\Default\shared_proto_db\metadata since it was missing.
+2021/11/25-12:45:05.478 52d4 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Debug\FireBrowserWebView\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001

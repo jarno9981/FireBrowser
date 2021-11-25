@@ -1,3 +1,2 @@
-2021/11/19-15:59:59.869 5b58 Recovering log #191
-2021/11/19-15:59:59.901 5b58 Delete type=0 #191
-2021/11/19-15:59:59.901 5b58 Delete type=3 #190
+2021/11/25-12:46:58.966 c5c Creating DB C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\data_reduction_proxy_leveldb since it was missing.
+2021/11/25-12:46:59.006 c5c Delete type=3 #1

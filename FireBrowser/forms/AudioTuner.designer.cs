@@ -49,9 +49,9 @@ namespace FireBrowser.forms
             // 
             this.drivers.DetectUrls = false;
             this.drivers.Enabled = false;
-            this.drivers.Location = new System.Drawing.Point(16, 61);
+            this.drivers.Location = new System.Drawing.Point(16, 73);
             this.drivers.Name = "drivers";
-            this.drivers.Size = new System.Drawing.Size(423, 43);
+            this.drivers.Size = new System.Drawing.Size(443, 43);
             this.drivers.TabIndex = 1;
             this.drivers.Text = "Chromium Web Driver 95.1x.53 - fixed\nwebview2 audio driver 95.1x.53 - fixed\n";
             // 
@@ -62,14 +62,15 @@ namespace FireBrowser.forms
             // 
             // AudioTuner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 120);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(471, 143);
             this.Controls.Add(this.drivers);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(469, 167);
+            this.MaximumSize = new System.Drawing.Size(489, 190);
             this.MinimizeBox = false;
             this.Name = "AudioTuner";
             this.ShowInTaskbar = false;

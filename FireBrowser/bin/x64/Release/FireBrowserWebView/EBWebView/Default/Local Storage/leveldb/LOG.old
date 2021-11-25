@@ -1,3 +1,2 @@
-2021/11/19-15:59:56.707 6178 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2021/11/19-15:59:56.710 6178 Recovering log #26
-2021/11/19-15:59:56.711 6178 Reusing old log C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Local Storage\leveldb/000026.log 
+2021/11/25-12:46:55.742 7dc4 Creating DB C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Local Storage\leveldb since it was missing.
+2021/11/25-12:46:55.758 7dc4 Reusing MANIFEST C:\Users\jarno\source\repos\FireBrowser\FireBrowser\bin\x64\Release\FireBrowserWebView\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001

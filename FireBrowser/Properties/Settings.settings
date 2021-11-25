@@ -9,7 +9,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="EngineDefault" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://www.google.nl/</Value>
+      <Value Profile="(Default)">https://www.google.com/?f=ssl</Value>
     </Setting>
     <Setting Name="check" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
